@@ -1,1 +1,253 @@
-hello from index.html at danielvt.com
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <link rel="stylesheet" href="shared.css" />
+    <link rel="stylesheet" href="login.css" />
+    <style>
+      .main-header {
+        display: none;
+      }
+    </style>
+  </head>
+
+  <body id="body">
+    <span id="token" style="color:white;">NULL</span>
+    <div class="backdrop"></div>
+
+    <button id="closeBtn">Log out</button>
+    <div class="modal">
+      <h1 class="modal__title">Do you want to continue?</h1>
+      <div class="modal__actions">
+        <a href="start-hosting/index.html" class="modal__action">Yes!</a>
+        <button class="modal__action modal__action--negative" type="button">
+          No!
+        </button>
+      </div>
+    </div>
+    <header class="main-header">
+      <div>
+        <button class="toggle-button">
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+        </button>
+        <!-- <a href="index.html" class="main-header__brand">
+          <img
+            src="images/uhost-icon.png"
+            alt="uHost - Your favorite hosting company"
+          />
+        </a> -->
+
+        <span id="theuser"></span>
+      </div>
+      <nav class="main-nav">
+        <ul id="main-nav__items" class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="juntos/index.html">Juntos</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="thepolls/index.html">Encuestas</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="challenge/index.html">Challenge</a>
+          </li>
+          <!-- <li class="main-nav__item main-nav__item--cta">
+                    <a href="start-hosting/index.html">Entrar</a>
+                </li> -->
+        </ul>
+      </nav>
+    </header>
+    <nav class="mobile-nav">
+      <div id="closeMobileNav">x</div>
+      <ul class="mobile-nav__items">
+        <li class="mobile-nav__item">
+          <a href="index.html">Home</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="juntos/index.html">Juntos</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="thepolls/index.html">Encuestas</a>
+        </li>
+        <li class="mobile-nav__item main-nav__item--cta">
+          <a href="challenge/index.html">Challenge</a>
+        </li>
+      </ul>
+    </nav>
+    <main id="main">
+      <section id="invite2">
+        <div class="form-style-8">
+          <h2>Join the system</h2>
+          <form>
+            <input
+              type="text"
+              id="sponsoremail"
+              name="sponsoremail"
+              placeholder="Quien te invitó? email"
+            />
+            <input
+              type="text"
+              id="useremail"
+              name="useremail"
+              placeholder="Tu email."
+            />
+            <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Tu sobrenombre."
+            />
+            <input
+              type="password"
+              id="userpassword"
+              name="userpassword"
+              placeholder="password"
+            />
+            <input
+              type="submit"
+              id="submitBtn"
+              name="submit"
+              placeholder="Enviar"
+            />
+          </form>
+          <div><a id="goback" href="index.html">Go Back</a></div>
+        </div>
+      </section>
+      <section class="jumbotron">
+        <h1>Simulacion Prototipo</h1>
+        <p class="lead">
+          Plataforma prototipo movil para explorar , crear y aprender juntos.
+          Juegos deportivos para concursar tipo fantasy football o algo no tan
+          similar. Solo que gane el que mas juegos adivine.
+        </p>
+      </section>
+      <section id="login" class="login">
+        <div class="container">
+          <form class="containerform" id="theform" method="post">
+            <div class="imgcontainer">
+              <img src="images/img_avatar2.png" alt="Avatar" class="avatar" />
+            </div>
+
+            <label for="uemail"><b>Username</b></label>
+
+            <input
+              type="text"
+              placeholder="Enter Username"
+              id="uemail"
+              name="uemail"
+              required
+            />
+
+            <label for="psw"><b>Password</b></label>
+
+            <input
+              type="password"
+              placeholder="Enter Password"
+              name="psw"
+              id="password"
+              required
+            />
+
+            <button type="submit" id="submit" class="loginBtn">Login</button>
+
+            <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+
+            <div id="rememberme">
+              <!-- <label style="display: inline-block"> -->
+              <input type="checkbox" checked="checked" name="remember" />
+              <div>Remember me</div>
+              <!-- </label> -->
+            </div>
+            <div id="forgot">
+              <div><a>Forgot password?</a></div>
+              <div><a id="register">Register</a></div>
+            </div>
+          </form>
+        </div>
+        <template id="answerresults">
+          <strong>Windows PC</strong><span class="pull-right">30%</span>
+          <div class="progress progress-danger active">
+            <div class="bar" style="width: 30%;"></div>
+          </div>
+        </template>
+
+        <template id="thePollsHTML">
+          <div class="container" col="thePollBoot">
+            <div class="col-md-4"></div>
+
+            <div class="col-md-10 offset-md-1">
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <h3 class="panel-title" id="questions">
+                    Please Rate our service
+                  </h3>
+                </div>
+                <div class="panel-body">
+                  <ul class="list-group" id="answers2">
+                    <li class="list-group-item">
+                      <strong>Windows PC</strong
+                      ><span class="pull-right">30%</span>
+                      <div class="progress progress-danger active">
+                        <div class="bar" style="width: 30%;"></div>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="checkbox">
+                        <label>
+                          <input type="radio" value="" name="optradio2" /> Good
+                        </label>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value="" /> Satisfactory
+                        </label>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="checkbox">
+                        <label>
+                          <input type="checkbox" value="" /> Needs Improvement
+                        </label>
+                      </div>
+                    </li>
+                    <li class="list-group-item">
+                      <div class="checkbox">
+                        <label> <input type="checkbox" value="" /> Poor </label>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="panel-footer text-center">
+                  <button
+                    type="button"
+                    id="nextPollBtn"
+                    class="btn btn-primary btn-block btn-sm"
+                  >
+                    Next Poll
+                  </button>
+                  <!-- <a href="#" class="small">View Result</a> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+      </section>
+    </main>
+    <!-- <footer class="main-footer">
+        <nav>
+            <ul class="main-footer__links">
+                <li class="main-footer__link"><a href="#">Support</a></li>
+                <li class="main-footer__link"><a href="#">Terms of Use</a></li>
+            </ul>
+        </nav>
+    </footer> -->
+    <script defered src="shared.js"></script>
+    <script defered src="login.js"></script>
+  </body>
+</html>

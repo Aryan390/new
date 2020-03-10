@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Challenge</title>
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="challenge.css" />
+  </head>
+
+  <body>
+    <div class="backdrop"></div>
+    <button id="closeBtn">Log out</button>
+    <template id="thenflgametemplate">
+      <div>
+        <input
+          type="radio"
+          id="team3"
+          data-game="2"
+          name="nameTwo"
+          value="team1"
+        />
+        <label for="team3">
+          <img
+            src="https://i.logocdn.com/nfl/2013/jacksonville-jaguars.svg"
+            alt="image of Jacksonville"
+          />
+          <h4>Jacksonvile</h4>
+        </label>
+      </div>
+
+      <div>
+        <input
+          type="radio"
+          id="team4"
+          data-game="2"
+          name="nameTwo"
+          value="team2"
+        />
+        <label for="team4">
+          <img
+            src="https://i.logocdn.com/nfl/1996/philadelphia-eagles.svg"
+            alt="image of Philadelphia"
+          />
+          <h4>Philadelphia</h4>
+        </label>
+      </div>
+    </template>
+
+    <!--<div class="modal">
+        <h1 class="modal__title">Do you want to continue?</h1>
+        <div class="modal__actions">
+            <a href="start-hosting/index.html" class="modal__action">Yes!</a>
+            <button class="modal__action modal__action--negative" type="button">No!</button>
+        </div>
+    </div> -->
+    <header class="main-header">
+      <div>
+        <button class="toggle-button">
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+        </button>
+        <!-- <a href="../index.html" class="main-header__brand">
+          <img
+            src="../images/untos-icon.png"
+            alt="uHost - Your favorite hosting company"
+          />
+        </a> -->
+        <span id="theuser"></span>
+      </div>
+      <nav class="main-nav">
+        <ul id="main-nav__items" class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="../juntos/index.html">Juntos</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="../thepolls/index.html">Encuestas</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="index.html">Challenge</a>
+          </li>
+          <!-- <li class="main-nav__item main-nav__item--cta">
+                    <a href="start-hosting/index.html">Entrar</a>
+                </li> -->
+        </ul>
+      </nav>
+    </header>
+    <nav class="mobile-nav">
+      <div id="closeMobileNav">x</div>
+      <ul class="mobile-nav__items">
+        <li class="main-nav__item">
+          <a href="../juntos/index.html">Juntos</a>
+        </li>
+        <li class="main-nav__item">
+          <a href="../thepolls/index.html">Encuestas</a>
+        </li>
+        <li class="main-nav__item main-nav__item--cta">
+          <a href="index.html">Challenge</a>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <section class="jumbotron">
+        <h1>NFL Challenge</h1>
+        <p class="lead">Empujar al rival es divertido.</p>
+      </section>
+      <section id="challenge">
+        <h1>PRO-Bowl</h1>
+        <form action="post" method="somemethod.phps" id="nflgamesForm">
+          <div id="thegames">
+            <!-- <div>
+                        <input type="radio" id="team1" data-game="1" name="nameOne" value="team1">
+                        <label for="team1">
+                            <img src="https://i.logocdn.com/nfl/2013/jacksonville-jaguars.svg"
+                                alt="image of Jacksonville">
+                            <h4>Jacksonvile</h4>
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="team2" data-game="1" name="nameOne" value="team2">
+                        <label for="team2">
+                            <img src="https://i.logocdn.com/nfl/1996/philadelphia-eagles.svg"
+                                alt="image of Philadelphia">
+                            <h4>Philadelphia</h4>
+                        </label>
+                    </div> 
+
+                </div>
+
+                <div class="thegame">
+                     <div>
+                        <input type="radio" id="team3" data-game="2" name="nameTwo" value="team1">
+                        <label for="team3">
+                            <img src="https://i.logocdn.com/nfl/2013/jacksonville-jaguars.svg"
+                                alt="image of Jacksonville">
+                            <h4>Jacksonvile</h4>
+                        </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" id="team4" data-game="2" name="nameTwo" value="team2">
+                        <label for="team4">
+                            <img src="https://i.logocdn.com/nfl/1996/philadelphia-eagles.svg"
+                                alt="image of Philadelphia">
+                            <h4>Philadelphia</h4>
+                        </label>
+                    </div> -->
+          </div>
+          <div>
+            <button id="btnSaveGames" type="submit" class="button">
+              Save Games
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+    <footer class="main-footer">
+      <nav>
+        <ul class="main-footer__links">
+          <li class="main-footer__link"><a href="#">Support</a></li>
+          <li class="main-footer__link"><a href="#">Terms of Use</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script defer src="../shared.js"></script>
+    <script defer src="challenge.js"></script>
+  </body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Encuestas</title>
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="thepolls.css" />
+  </head>
+
+  <body>
+    <div class="backdrop"></div>
+
+    <button id="closeBtn">Log out</button>
+    <div class="modal">
+      <h1 class="modal__title">Do you want to continue?</h1>
+      <div class="modal__actions">
+        <a href="start-hosting/index.html" class="modal__action">Yes!</a>
+        <button class="modal__action modal__action--negative" type="button">
+          No!
+        </button>
+      </div>
+    </div>
+    <header class="main-header">
+      <div>
+        <button class="toggle-button">
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+          <span class="toggle-button__bar"></span>
+        </button>
+        <!-- <a href="../index.html" class="main-header__brand">
+          <img
+            src="../images/uhost-icon.png"
+            alt="uHost - Your favorite hosting company"
+          />
+        </a> -->
+        <span id="theuser"></span>
+      </div>
+      <nav class="main-nav">
+        <ul id="main-nav__items" class="main-nav__items">
+          <li class="main-nav__item">
+            <a href="../juntos/index.html">Juntos</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="index.html">Encuestas</a>
+          </li>
+          <li class="main-nav__item">
+            <a href="../challenge/index.html">Challenge</a>
+          </li>
+          <!-- <li class="main-nav__item main-nav__item--cta">
+                    <a href="start-hosting/index.html">Entrar</a>
+                </li> -->
+        </ul>
+      </nav>
+    </header>
+    <nav class="mobile-nav">
+      <div id="closeMobileNav">x</div>
+      <ul class="mobile-nav__items">
+        <li class="mobile-nav__item">
+          <a href="../juntos/index.html">Juntos</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="index.html">Encuestas</a>
+        </li>
+        <li class="mobile-nav__item">
+          <a href="../challenge/index.html">Challenge</a>
+        </li>
+        <!-- <li class="main-nav__item main-nav__item--cta">
+                <a href="start-hosting/index.html">Entrar</a>
+            </li> -->
+      </ul>
+    </nav>
+    <main>
+      <span id="thetoken" style="color:white;">NULL</span>
+      <section class="jumbotron">
+        <h1>Encuestas</h1>
+        <p class="lead">Y usted que opina?</p>
+      </section>
+      <section id="thepolls">
+        <!-- <div>
+                <h2>Cargando encuestas ....</h2>
+            </div> -->
+        <div id="thequestion">
+          <h3>Porfavor esperar a cargar la página...</h3>
+        </div>
+
+        <div id="theanswers">
+          <div>
+            <label for="radio1">
+              <input type="radio" name="radio1" value="dynamic" />
+              <span class="realanswer"
+                >Porfavor esperar a cargar la página...
+              </span>
+            </label>
+          </div>
+          <div>
+            <label for="radio2">
+              <input type="radio" name="radio2" value="dynamic" /> ya debería de
+              cargar....
+            </label>
+          </div>
+        </div>
+
+        <span id="polls-footer">
+          <button id="pollnextBtn" type="button">Vote & Next Poll</button>
+        </span>
+      </section>
+    </main>
+    <!-- <template id="thepollstemplate">
+        <div id="thepolls">
+            <div id="thequestion">
+                <h3>Fake dummy question?</h3>
+            </div>
+
+            <div id="theanswers">
+                <div>
+                    <label for="radio1">
+                        <input type="radio" name="optradio" value="dynamic">
+                        <span class="realanswer">Fake dummy answer goes here, number one. </span>
+                    </label>
+                </div>
+                <div>
+                    <label for="radio2">
+                        <input type="radio" name="optradio" value="dynamic"> Something2 answer
+                    </label>
+                </div>
+            </div>
+
+
+            <span id="polls-footer">
+                <button id="pollnextBtn" type="button">Vote & Next Poll</button>
+            </span>
+        </div>
+    </template> -->
+    <footer class="main-footer">
+      <nav>
+        <ul class="main-footer__links">
+          <li class="main-footer__link"><a href="#">Support</a></li>
+          <li class="main-footer__link"><a href="#">Terms of Use</a></li>
+        </ul>
+      </nav>
+    </footer>
+    <script defer src="../shared.js"></script>
+    <script defer src="jspolls2.js"></script>
+  </body>
+</html>

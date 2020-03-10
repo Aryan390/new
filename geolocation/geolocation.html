@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>How to get to our office?</title>
+</head>
+
+<body>
+    <style type="text/css">
+        html,
+        body {
+            margin: 0;
+        }
+
+        #map {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+    </style>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var officePos = { lat: 50.438284, lng: 30.515339 };
+            var map = new google.maps.Map(document.getElementById('map'), {
+                zoom: 17,
+                center: officePos
+            });
+            var markerOffice = new google.maps.Marker({
+                position: officePos,
+                map: map,
+                label: 'A'
+            });
+        }
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0&callback=initMap"
+        type="text/javascript"></script>
+
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?callback=initMap" async defer></script> -->
+</body>
+
+</html>
