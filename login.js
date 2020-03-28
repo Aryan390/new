@@ -126,12 +126,12 @@ var fnPostLogin = function() {
   usernameInput = document.getElementById("useremail").value;
   passwordInput = document.getElementById("userpassword").value;
 
-  console.log("the useremail: " + usernameInput);
+  console.log("the useremail: " + usernameInput + " " + passwordInput);
   console.log("the end");
   console.log("the end");
   console.log("the end");
   console.log("the end");
-  //return;
+  // return;
   var xhr = new XMLHttpRequest();
   console.log("usernamusee email: " + usernameInput);
 
