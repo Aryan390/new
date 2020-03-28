@@ -24,6 +24,7 @@ let together = document.getElementById("together");
 // alert("hello");
 
 function xhrsignup() {
+	console.log("xhrsignup");
   var xhr = new XMLHttpRequest();
 
   xhr.open("POST", theurl, true);
@@ -46,21 +47,24 @@ function xhrsignup() {
 
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-      let jsonResponse = JSON.parse(xhr.responseText);
+      //let jsonResponse = JSON.parse(xhr.responseText);
       let theForm = document.getElementById("invite2");
       // theForm.replace
-      theForm.innerHTML = "<div style='height:500px'><h2>good to go</h2></div>";
+      theForm.innerHTML = "<div style='height:500px'><h2>Good to go</h2></div>";
       // theuser.innerHTML = `${jsonResponse.success.name}`;
       // theToken.innerHTML = `Name: ${jsonResponse.success.name} &nbsp;  &nbsp; Email:${jsonResponse.success.email}`;
-      console.log(jsonResponse);
+      //console.log(jsonResponse);
       // theForm.style.display = "none";
-      console.log("done registering!");
+      //console.log("done registering!");
 
-      setTimeout(function() {
-        document.location.replace("https://nflchallenge.club");
-      }, 2000);
+      //setTimeout(function() {
+        //document.location.replace("https://danielvt.com");
+      //}, 1000);
+
+	fnPostLogin();
     }
   };
+
 
   // console.log(xhr.send()).
 }
@@ -96,12 +100,12 @@ function getChecked(elem) {
 }
 
 var fnPostLogin = function() {
-  // console.log("hey");
+  console.log("hey");
   // return;
-  usernameInput = document.getElementById("uemail").value;
-  passwordInput = document.getElementById("password").value;
+  usernameInput = document.getElementById("username").value;
+  passwordInput = document.getElementById("userpassword").value;
   var xhr = new XMLHttpRequest();
-  console.log("username email: " + usernameInput);
+  console.log("usernamusee email: " + usernameInput);
 
   xhr.open("POST", "https://prueba3.com/api/login", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
@@ -125,6 +129,8 @@ var fnPostLogin = function() {
     } else {
       // content.innerHTML = "No token received";
     }
+
+	console.log("thank you!!");
   });
 
   var sendObject = JSON.stringify({

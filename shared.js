@@ -27,7 +27,7 @@
 
     localStorage.removeItem("token");
 
-    document.location.replace("https://nflchallenge.club");
+    document.location.replace("https://danielvt.com");
   };
 
   // Promise

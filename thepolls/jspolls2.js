@@ -251,5 +251,5 @@ console.log("getting the polls...");
 if (localStorage.getItem("token") !== null) {
   fnGetPolls();
 } else {
-  document.location.replace("http://127.0.0.1:5500/index.html");
+  document.location.replace("https://danielvt.com/index.html");
 }

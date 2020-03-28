@@ -227,7 +227,7 @@ var fnSignOut = function (token) {
 
     localStorage.removeItem("token");
 
-    document.location.replace("http://127.0.0.1:5500/thePolls.html");
+    document.location.replace("https://danielvt.com/thePolls.html");
 };
 
 var fnAddEventListeners = function () {
