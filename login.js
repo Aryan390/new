@@ -43,7 +43,8 @@ function xhrsignup() {
     sponsor: sponsoremail.value
   });
   console.log("not yet sent");
-
+  console.log(newuseremail.value + " " + newuserpassword.value);
+  //return;
   xhr.send(sendObject);
 
   xhr.onreadystatechange = function() {
@@ -58,8 +59,28 @@ function xhrsignup() {
       // theForm.style.display = "none";
       //console.log("done registering!");
 
+      var responseObject = JSON.parse(this.response);
+      console.log(responseObject);
+      if (responseObject.access_token) {
+        theToken.innerHTML =
+          //"Accepted user " + responseObject.access_token.slice(0, 19) + "....";
+          localStorage.setItem("token", responseObject.access_token);
+        theForm.style.display = "none";
+        // thePolls.style.display = "block";
+        // theToken.style.display = "block";
+        // signOut.style.display = "inline-block";
+        setTimeout(function() {
+          mainHeaderOpen();
+        }, 500);
+        // mainHeaderOpen();
+        signOut.style.display = "inline-block";
+        // mainNav.style.display = "inline-block";
+      } else {
+        // content.innerHTML = "No token received";
+      }
+
       setTimeout(function() {
-        document.location.replace("http://127.0.0.1:5500/index.html");
+        document.location.replace("https://danielvt.com/index.html");
       }, 2200);
     }
   };
@@ -102,8 +123,8 @@ var fnPostLogin = function() {
   // return;
   //return 0;
 
-  usernameInput = document.getElementById("newuseremail").value;
-  passwordInput = document.getElementById("newuserpassword").value;
+  usernameInput = document.getElementById("useremail").value;
+  passwordInput = document.getElementById("userpassword").value;
 
   console.log("the useremail: " + usernameInput);
   console.log("the end");
@@ -177,7 +198,7 @@ var fnSignOut = function(token) {
 
   localStorage.removeItem("token");
 
-  // document.location.replace("http://127.0.0.1:5500/index.html");
+  // document.location.replace("https://danielvt.com/index.html");
 };
 
 var fnAddEventListeners = function() {
