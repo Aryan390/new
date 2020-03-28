@@ -61,6 +61,7 @@
     invite2.style.display = "none";
     together.style.display = "block";
   } else {
-    document.location.replace("https://danielvt.com/index.html");
+    //https://danielvt.com/index.html
+    document.location.replace("http://127.0.0.1:5500/index.html");
   }
 })();
