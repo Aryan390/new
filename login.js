@@ -64,8 +64,8 @@ function xhrsignup() {
       if (responseObject.access_token) {
         theToken.innerHTML =
           //"Accepted user " + responseObject.access_token.slice(0, 19) + "....";
-          localStorage.setItem("token", responseObject.access_token);
-        theForm.style.display = "none";
+          // localStorage.setItem("token", responseObject.access_token);
+          theForm.style.display = "none";
         // thePolls.style.display = "block";
         // theToken.style.display = "block";
         // signOut.style.display = "inline-block";

@@ -169,6 +169,7 @@ var fnPostPoll = function(e) {
 };
 
 var fnPostLogin = function() {
+  console.log("app.js method not used");
   usernameInput = document.getElementById("username").value;
   passwordInput = document.getElementById("password").value;
   var xhr = new XMLHttpRequest();
