@@ -6,6 +6,7 @@
   let mobileNav = document.querySelector(".mobile-nav");
   let backdrop = document.querySelector(".backdrop");
   let closeBtn = document.querySelector("#closeBtn");
+  let userEmail = "null";
 
   // let theuser = document.getElementById("theuser");
 
@@ -31,31 +32,25 @@
   };
 
   // Promise
-  function xhrrequestUser(theurl) {
+  function xhrrequestUser() {
     var xhr = new XMLHttpRequest();
 
-    xhr.open("GET", theurl, true);
+    xhr.open("GET", "https://prueba3.com/api/user", true);
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
 
     xhr.setRequestHeader(
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
-
-    xhr.send();
-
-    // console.log(xhr.send()).
-
     xhr.onreadystatechange = function() {
       if (this.readyState == 4 && this.status == 200) {
         let jsonResponse = JSON.parse(xhr.responseText);
-        theuser.innerHTML = `${jsonResponse.success.name}`;
-        // theToken.innerHTML = `Name: ${jsonResponse.success.name} &nbsp;  &nbsp; Email:${jsonResponse.success.email}`;
-        console.log(jsonResponse);
-        // theForm.style.display = "none";
-        console.log("done! shared.js get User");
+        //theToken.innerHTML = `Name: ${jsonResponse.success.name} &nbsp;  &nbsp; Email:${jsonResponse.success.email}`;
+        console.log(jsonResponse.success.email);
+        window.sponsoremail = jsonResponse.success.email;
       }
     };
+    xhr.send();
   }
 
   if (localStorage.getItem("token") !== null) {
@@ -63,7 +58,10 @@
     console.log("Token found...");
     closeBtn.style.display = "flex";
 
-    xhrrequestUser(theurl);
+    xhrrequestUser();
+
+    //console.log(x.email);
+    //console.log(x);
 
     console.log("thepolls display block");
     // document.getElementById("thepolls").style.display = "block";

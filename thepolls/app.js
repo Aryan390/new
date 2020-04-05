@@ -240,6 +240,8 @@ var fnAddEventListeners = function() {
 };
 
 if (localStorage.getItem("token") !== null) {
+  console.log("here it goes, json user response");
+
   var xhr = new XMLHttpRequest();
 
   xhr.open("GET", "https://prueba3.com/api/user", true);

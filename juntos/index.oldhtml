@@ -80,17 +80,22 @@
         <h1>Juntos Podemos Más</h1>
         <p class="lead">Es muy fácil, entre más seamos mejor.</p>
       </section>
-      <section class="jumbotron">
-        <div id="invite2">
+      <section id="invite22">
+        <div class="form-style-9">
           <h2>Join the system</h2>
-          <form id="inviteeForm">
+          <form>
+            <input
+              type="text"
+              id="sponsoremail"
+              name="sponsoremail"
+              placeholder="Quien te invitó? email"
+            />
             <input
               type="text"
               id="useremail"
               name="useremail"
               placeholder="Tu email."
             />
-            <br />
             <input
               type="text"
               id="username"
@@ -98,16 +103,19 @@
               placeholder="Tu sobrenombre."
             />
             <input
+              type="password"
+              id="userpassword"
+              name="userpassword"
+              placeholder="password"
+            />
+            <input
               type="submit"
               id="submitBtn"
-              style="position:absolute"
-              ;
               name="submit"
-              value="+"
+              placeholder="Enviar"
             />
           </form>
         </div>
-        <button id="getusersinvitees">hello</button>
       </section>
       <section id="together">
         <h2>Juntos podemos construir</h2>

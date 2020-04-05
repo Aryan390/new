@@ -227,6 +227,7 @@ function mainHeaderOpen() {
 if (localStorage.getItem("token") !== null) {
   theForm.style.display = "none";
   mainHeaderOpen();
+
   // console.log("inside looking for the token...");
   // var xhr = new XMLHttpRequest();
 
