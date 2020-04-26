@@ -6,7 +6,7 @@
   let userpassword = document.getElementById("userpassword");
   let submitBtn = document.getElementById("submitBtn");
   let theurl = "https://prueba3.com/api/selfregister";
-  let invite2 = document.getElementById("invite2");
+  let invitees = document.getElementById("invitees");
   let together = document.getElementById("together");
   let passportUsername = "passportUsername";
   let passportEmail = "passportEmail";
@@ -50,6 +50,9 @@
 
     // console.log(xhr.send()).
   }
+  function displayemails(index, item) {
+    invitees.innerHTML += "<div>" + index.email + "</div>";
+  }
 
   function usersinvited() {
     let xhr = new XMLHttpRequest();
@@ -60,6 +63,20 @@
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
+
+    xhr.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        let jsonResponse = JSON.parse(xhr.responseText);
+        // console.log(xhr.responseText);
+        console.log(jsonResponse);
+        jsonResponse.forEach(displayemails);
+
+        // jsonResponse.each(email => {
+        //   console.log(email);
+        // });
+        console.log("done registering!");
+      }
+    };
 
     var sendObject = JSON.stringify({
       email: window.sponsoremail
