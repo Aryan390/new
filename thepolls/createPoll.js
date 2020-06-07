@@ -1,6 +1,19 @@
 let globalPollId = "";
 let thetoken = localStorage.getItem("token");
 let token = document.getElementById("thetoken");
+let questions = document.getElementById("questions");
+let addAnswer = document.getElementById("addAnswer");
+let nextAnswer2 = 3;
+let mynextAnswer = 3;
+let postPollbtn = document.getElementById("postPollbtn");
+
+// let singleAnswer = `<div>
+//           <label for="answer${nextAnswer}">
+//           <span class="realanswer">Escribir respuesta aquí. </span>
+//           <input type="text" name="answer${nextAnswer}" value="dynamic" />
+//           </label>
+//           </div>`;
+
 token.innerHTML = thetoken;
 let data = {
   poll: [
@@ -65,6 +78,43 @@ let templateresults = function () {
     .join("");
 };
 
+let AddOneMoreAnswerField = function (nextAnswer) {
+  console.log("hey you addonemoreanswerField Original");
+  console.log(mynextAnswer);
+  let newsingleAnswer = document.createElement("div");
+  let newlabel = document.createElement("label");
+  let newinputtext = document.createElement("input");
+  let newspan = document.createElement("span");
+  let answerstring = "answer";
+
+  newlabel.innerHTML = "Escribir aqui Respuesta";
+  newinputtext.setAttribute("type", "text");
+  nextAnswer = mynextAnswer;
+
+  // console.log(nextAnswer);
+  newinputtext.setAttribute("name", answerstring.concat(nextAnswer));
+  newlabel.setAttribute("for", answerstring.concat(nextAnswer));
+  // newinputtext.setAttribute("name", "answer"+ )
+
+  newlabel.appendChild(newspan);
+  newlabel.appendChild(newinputtext);
+  newsingleAnswer.appendChild(newlabel);
+
+  questions.append(newsingleAnswer);
+  mynextAnswer = mynextAnswer + 1;
+};
+
+let AddOneMoreAnswerField2 = function (nextAnswer) {
+  console.log("hey you addonemoreanswerFieldxxxxxx");
+
+  return nextAnswer.map(function (nextAnswer) {
+    return `<div>hello</hello>`;
+  });
+
+  questions.append(singleAnswer);
+  nextAnswer = nextAnswer[0] + 1;
+};
+
 var render = function () {
   console.log("I am rendering....");
   let thequess = document.getElementById("thequestion");
@@ -97,25 +147,56 @@ var renderend = function () {
   return;
 };
 
+let createPollArray = function () {
+  let inputs = questions.getElementsByTagName("input");
+  let arr = Array.from(inputs);
+  console.log(arr);
+  let data = [];
+
+  arr.forEach(function (item) {
+    // let obj = ;
+    data.push([item.name, item.value]);
+  });
+  // console.log(JSON.stringify(arr));
+  // console.log(data);
+  return data;
+};
+let createPollArray2 = function () {
+  let inputs = questions.getElementsByTagName("input");
+  let arr = Array.from(inputs);
+  console.log(arr);
+  let data = [];
+
+  arr.forEach(function (item) {
+    // let obj = ;
+    data.push([item.name, item.value]);
+  });
+  // console.log(JSON.stringify(arr));
+  // console.log(data);
+  return data;
+};
+
 // console.log(localStorage.getItem("token"));
 // # Clone the template
 var fnPostPoll = function (e) {
-  let pollId = data.globalpollid;
-  let pollAnswerId = e.target.value;
+  let newPollobj = createPollArray();
+
+  console.log(newPollobj);
+  // let pollAnswerId = e.target.value;
   let token = localStorage.getItem("token");
-  var sendObject;
+  // var sendObject;
+  console.log("token: " + token);
   var sendObject = JSON.stringify({
-    pollId: pollId,
-    pollAnswerId: pollAnswerId,
+    data: newPollobj,
   });
   var xhr = new XMLHttpRequest();
 
-  xhr.open("POST", "https://prueba3.com/api/postPolls", true);
+  xhr.open("POST", "https://prueba3.com/api/postNewPoll", true);
 
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
   xhr.addEventListener("load", function () {
-    let objresponse = JSON.parse(this.response);
+    // let objresponse = JSON.parse(this.response);
     // console.log(objresponse.pollId);
 
     // Object.entries(objresponse).forEach(function (item) {
@@ -123,23 +204,24 @@ var fnPostPoll = function (e) {
     // });
     // data.globalpollid = objresponse.pollId;
     // data.poll.question = objresponse.data.question;
-    data.poll.answers = objresponse;
-    console.dir(objresponse);
-    renderresults();
+    // data.poll.answers = objresponse;
+    console.dir("success");
+    console.dir(this.response);
+    // renderresults();
   });
 
   console.log(sendObject);
-  console.log("going to send");
+  // console.log("going to send");
   xhr.send(sendObject);
 
-  let nextPollBtn = document.getElementById("pollnextBtn");
+  // let nextPollBtn = document.getElementById("pollnextBtn");
 
-  // setTimeout(() => {
-  //   console.log("scrolling into view");
-  //   nextPollBtn.scrollIntoView({ behavior: "smooth" });
-  // }, 333);
+  // // setTimeout(() => {
+  // //   console.log("scrolling into view");
+  // //   nextPollBtn.scrollIntoView({ behavior: "smooth" });
+  // // }, 333);
 
-  nextPollBtn.addEventListener("click", fnGetPolls);
+  // nextPollBtn.addEventListener("click", fnGetPolls);
 };
 
 // var fnNextPoll = function () {
@@ -192,7 +274,7 @@ var fnGetPolls = function (thetoken) {
       data.poll.question = objresponse.data.question;
       data.poll.answers = objresponse.data.pollanswers;
 
-      render();
+      // render();
       // console.log(data.poll.question);
       // console.log(data.globalpollid);
       // console.log(xhr.responseText);
@@ -246,10 +328,16 @@ var fnGetPolls = function (thetoken) {
   xhr.send();
 };
 
+addAnswer.addEventListener("click", AddOneMoreAnswerField);
+postPollbtn.addEventListener("click", function () {
+  fnPostPoll();
+  // clearHTML();
+});
+
 console.log("getting the polls...");
 
 if (localStorage.getItem("token") !== null) {
-  fnGetPolls();
+  // fnGetPolls();
 } else {
   document.location.replace("https://127.0.0.1:5500/index.html");
   // document.location.replace("https://danielvt.com/index.html");

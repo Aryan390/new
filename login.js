@@ -20,7 +20,9 @@ let submitInviteBtn = document.getElementById("submitBtn");
 let theurl = "https://prueba3.com/api/register";
 let invite2 = document.getElementById("invite2");
 let together = document.getElementById("together");
-
+let forgotpass = document.getElementById("forgot");
+let forgotform = document.getElementById("forgotform");
+let submitforgot = document.getElementById("submitforgot");
 // alert("hello");
 
 function xhrsignup() {
@@ -40,14 +42,14 @@ function xhrsignup() {
     email: newuseremail.value,
     password: newuserpassword.value,
     password_confirmation: newuserpassword.value,
-    sponsor: sponsoremail.value
+    sponsor: sponsoremail.value,
   });
   console.log("not yet sent");
   console.log(newuseremail.value + " " + newuserpassword.value);
   //return;
   xhr.send(sendObject);
 
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       //let jsonResponse = JSON.parse(xhr.responseText);
       let theForm = document.getElementById("invite2");
@@ -69,7 +71,7 @@ function xhrsignup() {
         // thePolls.style.display = "block";
         // theToken.style.display = "block";
         // signOut.style.display = "inline-block";
-        setTimeout(function() {
+        setTimeout(function () {
           mainHeaderOpen();
         }, 500);
         // mainHeaderOpen();
@@ -79,8 +81,9 @@ function xhrsignup() {
         // content.innerHTML = "No token received";
       }
 
-      setTimeout(function() {
-        document.location.replace("https://danielvt.com/index.html");
+      setTimeout(function () {
+        document.location.replace("https://127.0.0.1:5500/index.html");
+        // document.location.replace("https://danielvt.com/index.html");
       }, 2200);
     }
   };
@@ -88,7 +91,7 @@ function xhrsignup() {
   // console.log(xhr.send()).
 }
 
-submitInviteBtn.addEventListener("click", function(e) {
+submitInviteBtn.addEventListener("click", function (e) {
   e.preventDefault();
   xhrsignup();
 });
@@ -118,7 +121,7 @@ function getChecked(elem) {
   }
 }
 
-var fnPostLogin = function() {
+var fnPostLogin = function () {
   console.log("hey 1");
   // return;
   //return 0;
@@ -137,33 +140,47 @@ var fnPostLogin = function() {
 
   xhr.open("POST", "https://prueba3.com/api/login", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  xhr.addEventListener("load", function() {
-    var responseObject = JSON.parse(this.response);
-    console.log(responseObject);
-    if (responseObject.access_token) {
-      theToken.innerHTML =
-        "Accepted user " + responseObject.access_token.slice(0, 19) + "....";
-      localStorage.setItem("token", responseObject.access_token);
-      theForm.style.display = "none";
-      // thePolls.style.display = "block";
-      // theToken.style.display = "block";
-      // signOut.style.display = "inline-block";
-      setTimeout(function() {
-        mainHeaderOpen();
-      }, 500);
-      // mainHeaderOpen();
-      signOut.style.display = "inline-block";
-      // mainNav.style.display = "inline-block";
-    } else {
-      // content.innerHTML = "No token received";
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status != 200) {
+      // Typical action to be performed when the document is ready:
+      // document.getElementById("polls").innerHTML = xhr.responseText;
+      console.log("equal to NOT Logged in");
+      joinFailAlert();
     }
 
-    console.log("thank you!!");
+    if (this.readyState == 4 && this.status == 200) {
+      var responseObject = JSON.parse(this.response);
+      console.log(responseObject);
+      if (responseObject.access_token) {
+        theToken.innerHTML =
+          "Accepted user " + responseObject.access_token.slice(0, 19) + "....";
+        localStorage.setItem("token", responseObject.access_token);
+        theForm.style.display = "none";
+        // thePolls.style.display = "block";
+        // theToken.style.display = "block";
+        // signOut.style.display = "inline-block";
+        setTimeout(function () {
+          mainHeaderOpen();
+        }, 500);
+        // mainHeaderOpen();
+        signOut.style.display = "inline-block";
+        // mainNav.style.display = "inline-block";
+      } else {
+        // content.innerHTML = "No token received";
+      }
+
+      console.log("thank you!!");
+    }
+  };
+  xhr.addEventListener("load", function () {});
+
+  xhr.addEventListener("error", function () {
+    alert("hey");
   });
 
   var sendObject = JSON.stringify({
     email: usernameInput,
-    password: passwordInput
+    password: passwordInput,
   });
 
   xhr.send(sendObject);
@@ -182,13 +199,13 @@ var fnPostLogin = function() {
   console.log("end the login process");
 };
 
-var fnSignOut = function(token) {
+var fnSignOut = function (token) {
   console.log("Sign out");
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "https://prueba3.com/api/logout", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // Typical action to be performed when the document is ready:
       // document.getElementById("polls").innerHTML = xhr.responseText;
@@ -199,9 +216,11 @@ var fnSignOut = function(token) {
   localStorage.removeItem("token");
 
   // document.location.replace("https://danielvt.com/index.html");
+
+  document.location.replace("https://127.0.0.1:5500/index.html");
 };
 
-var fnAddEventListeners = function() {
+var fnAddEventListeners = function () {
   signOut.addEventListener("click", fnSignOut);
   submitBtn.addEventListener("click", fnPostLogin);
   // thePolls.addEventListener("click", function () {
@@ -262,11 +281,83 @@ if (localStorage.getItem("token") !== null) {
 }
 fnAddEventListeners();
 
-registerLnk.addEventListener("click", function() {
-  // alert("hello");
-  let loginSection = document.getElementById("login");
-  let invite2 = document.getElementById("invite2");
+// registerLnk.addEventListener("click", function () {
+//   // alert("hello");
+//   let loginSection = document.getElementById("login");
+//   let invite2 = document.getElementById("invite2");
 
-  loginSection.style.display = "none";
-  invite2.style.display = "block";
+//   loginSection.style.display = "none";
+//   invite2.style.display = "block";
+// });
+
+forgotpass.addEventListener("click", function () {
+  console.log("clicked!");
+  // alert("hey");
+  // joinFailAlert();
+  forgotform.classList.toggle("visible");
 });
+
+// Alert when user invited response from api
+function joinFailAlert() {
+  let alert = document.getElementById("popup1");
+  alert.classList.toggle("visible");
+
+  let popup1 = document.getElementById("popup1");
+  popup1.addEventListener("click", function () {
+    popup1.classList.toggle("visible");
+  });
+}
+
+function submitforgotajax() {
+  let forgotuseremail = document.getElementById("forgotuseremail").value;
+
+  var xhr = new XMLHttpRequest();
+  console.log("submitforgotajax");
+
+  xhr.open("POST", "https://prueba3.com/api/password/create", true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  xhr.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status != 200) {
+      // Typical action to be performed when the document is ready:
+      // document.getElementById("polls").innerHTML = xhr.responseText;
+      console.log("fail submitforgotajax");
+      //add dyanmic message to alert or create another?
+      joinFailAlert();
+    }
+
+    if (this.readyState == 4 && this.status == 200) {
+      console.log(this.response);
+      // var responseObject = JSON.parse(this.response);
+      // console.log("success");
+      // console.log(responseObject);
+      // if (responseObject.access_token) {
+      //   theToken.innerHTML =
+      //     "Accepted user " + responseObject.access_token.slice(0, 19) + "....";
+      //   localStorage.setItem("token", responseObject.access_token);
+      //   theForm.style.display = "none";
+      //   // thePolls.style.display = "block";
+      //   // theToken.style.display = "block";
+      //   // signOut.style.display = "inline-block";
+
+      //   // mainHeaderOpen();
+      //   signOut.style.display = "inline-block";
+      //   // mainNav.style.display = "inline-block";
+      // } else {
+      //   // content.innerHTML = "No token received";
+      // }
+
+      console.log("thank you!!");
+      joinFailAlert();
+      return;
+    }
+  };
+
+  var sendObject = JSON.stringify({
+    email: "danielvt@gmail.com",
+  });
+
+  xhr.send(sendObject);
+}
+
+submitforgot.addEventListener("click", submitforgotajax);
