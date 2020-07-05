@@ -76,36 +76,54 @@
       <section class="jumbotron">
         <h1>Encuestas</h1>
         <p class="lead">
-          Y usted que opina? <br /><a href="createPoll.html">Crear Encuesta</a>
+          Y usted que opina? <br /><a href="index.html">Regresar</a>
         </p>
       </section>
       <section id="thepolls">
         <!-- <div>
                 <h2>Cargando encuestas ....</h2>
             </div> -->
-        <div id="thequestion">
+        <!-- <div id="thequestion">
           <h3>Porfavor esperar a cargar la página...</h3>
-        </div>
+        </div> -->
 
-        <div id="theanswers">
-          <div>
-            <label for="radio1">
-              <input type="radio" name="radio1" value="dynamic" />
-              <span class="realanswer"
-                >Porfavor esperar a cargar la página...
-              </span>
-            </label>
+        <div id="thequestions">
+          <div id="questions">
+            <div>
+              <label for="question">
+                <span class="realanswer">Escribir la pregunta aquí. </span>
+                <textarea
+                  rows="2"
+                  cols="25"
+                  name="question"
+                  value="dynamic"
+                ></textarea>
+              </label>
+            </div>
+
+            <div>
+              <label for="answer1">
+                <span class="realanswer">Escribir respuesta aquí. </span>
+                <input type="text" name="answer1" value="dynamic" />
+              </label>
+            </div>
+
+            <div>
+              <label for="answer2">
+                <span class="realanswer">Escribir respuesta aquí. </span>
+                <input type="text" name="answer2" value="dynamic" />
+              </label>
+            </div>
           </div>
+
           <div>
-            <label for="radio2">
-              <input type="radio" name="radio2" value="dynamic" /> ya debería de
-              cargar....
-            </label>
+            <br />
+            <button class="button" id="addAnswer">+ Add answer</button>
           </div>
         </div>
 
         <span id="polls-footer">
-          <button id="pollnextBtn" type="button">Vote & Next Poll</button>
+          <button id="postPollbtn" type="button">Create Poll</button>
         </span>
       </section>
     </main>
@@ -144,6 +162,6 @@
       </nav>
     </footer>
     <script defer src="../shared.js"></script>
-    <script defer src="jspolls2.js"></script>
+    <script defer src="createPoll.js"></script>
   </body>
 </html>

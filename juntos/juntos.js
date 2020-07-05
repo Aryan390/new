@@ -1,4 +1,4 @@
-(function() {
+(function () {
   // console.log(theuser.innerHTML);
   let sponsoremail = document.getElementById("sponsoremail");
   let useremail = document.getElementById("useremail");
@@ -28,14 +28,20 @@
       name: username.value,
       email: useremail.value,
       sponsor: window.sponsoremail,
-      password: "123123"
+      password: "123123",
     });
 
     xhr.send(sendObject);
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
+        inviteResponse();
+        console.log("before response text");
+
         let jsonResponse = JSON.parse(xhr.responseText);
+
+        console.log("before grabbing invite2");
+
         let theForm = document.getElementById("invite2");
         // theForm.replace
         theForm.innerHTML =
@@ -45,6 +51,7 @@
         console.log(jsonResponse);
         // theForm.style.display = "none";
         console.log("done registering!");
+        inviteResponse();
       }
     };
 
@@ -64,7 +71,7 @@
       "Bearer " + localStorage.getItem("token")
     );
 
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         let jsonResponse = JSON.parse(xhr.responseText);
         // console.log(xhr.responseText);
@@ -79,21 +86,33 @@
     };
 
     var sendObject = JSON.stringify({
-      email: window.sponsoremail
+      email: window.sponsoremail,
     });
 
     xhr.send(sendObject);
   }
 
-  submitBtn.addEventListener("click", function(e) {
+  submitBtn.addEventListener("click", function (e) {
     e.preventDefault();
     selfregister();
   });
 
-  getusersinvitedBtn.addEventListener("click", function(e) {
+  getusersinvitedBtn.addEventListener("click", function (e) {
     e.preventDefault();
-    usersinvited();
+    // usersinvited();
+    // inviteResponse();
   });
+
+  // Alert when user invited response from api
+  function inviteResponse() {
+    let alert = document.getElementById("popup1");
+    alert.classList.toggle("visible");
+
+    let popup1 = document.getElementById("popup1");
+    popup1.addEventListener("click", function () {
+      popup1.classList.toggle("visible");
+    });
+  }
 
   // console.log(theuser.innerHTML);
 
@@ -102,7 +121,7 @@
     //together.style.display = "block";
     console.log("asking for users invited");
   } else {
-    //https://danielvt.com/index.html
-    document.location.replace("https://danielvt.com/index.html");
+    document.location.replace("https://127.0.0.1:5500/index.html");
+    // document.location.replace("https://danielvt.com/index.html");
   }
 })();

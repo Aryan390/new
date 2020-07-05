@@ -25,13 +25,13 @@ for (var i = 0, n = aElements.length; i < n; ++i) {
   aElements[i].addEventListener("click", preventDefaultListener);
 }
 
-var fnGetPolls = function(token) {
+var fnGetPolls = function (token) {
   var xhr = new XMLHttpRequest();
 
   xhr.open("GET", "https://prueba3.com/api/viewPolls", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // Typical action to be performed when the document is ready:
 
@@ -45,7 +45,7 @@ var fnGetPolls = function(token) {
       let objresponse = JSON.parse(xhr.responseText);
       let answers = "";
 
-      objresponse.data[0].pollanswers.map(function(item) {
+      objresponse.data[0].pollanswers.map(function (item) {
         answers += `<div class="form-check">
                 <label class="form-check-label" for="radio1">
                     <input type="radio" class="form-check-input" style="margin-left:-10px" id="answer${item.myElemId}" name="optradio" value="${item.id}" >&nbsp;${item.answer}
@@ -70,11 +70,11 @@ var fnGetPolls = function(token) {
 
       document.body.append(clone);
 
-      document.getElementsByName("optradio").forEach(e => {
+      document.getElementsByName("optradio").forEach((e) => {
         e.addEventListener("click", fnPostPoll);
       });
 
-      document.getElementsByName("optradio2").forEach(e => {
+      document.getElementsByName("optradio2").forEach((e) => {
         e.addEventListener("click", fnPostPoll);
       });
 
@@ -88,7 +88,7 @@ var fnGetPolls = function(token) {
   xhr.send();
 };
 
-var fnNextPoll = function() {
+var fnNextPoll = function () {
   // let pollId = document.getElementById("questions").dataset.pollId;
   console.log("globalPollId: " + globalPollId);
   let token = localStorage.getItem("token");
@@ -100,7 +100,7 @@ var fnNextPoll = function() {
 
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
-  xhr.addEventListener("load", function() {
+  xhr.addEventListener("load", function () {
     let responseObject = JSON.parse(this.response);
     console.log(responseObject);
   });
@@ -115,14 +115,14 @@ function getChecked(elem) {
     alert("checked");
   }
 }
-var fnPostPoll = function(e) {
+var fnPostPoll = function (e) {
   let pollId = document.getElementById("questions").dataset.pollId;
   let pollAnswerId = e.target.value;
   let token = localStorage.getItem("token");
   var sendObject;
   var sendObject = JSON.stringify({
     pollId: pollId,
-    pollAnswerId: pollAnswerId
+    pollAnswerId: pollAnswerId,
   });
   var xhr = new XMLHttpRequest();
 
@@ -130,14 +130,14 @@ var fnPostPoll = function(e) {
 
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
-  xhr.addEventListener("load", function() {
+  xhr.addEventListener("load", function () {
     let responseObject = JSON.parse(this.response);
     let answers2 = document.getElementById("answers2");
     console.log("pollId: " + pollId);
     console.log("globalPollId: " + globalPollId);
 
     answers2.innerHTML = "";
-    Object.entries(responseObject).forEach(function(key, value) {
+    Object.entries(responseObject).forEach(function (key, value) {
       // console.log("key0  " + key[0]);
       // console.log(key[1]);
       // console.log(key[1].sum);
@@ -168,7 +168,7 @@ var fnPostPoll = function(e) {
   nextPollBtn.addEventListener("click", fnNextPoll);
 };
 
-var fnPostLogin = function() {
+var fnPostLogin = function () {
   console.log("app.js method not used");
   usernameInput = document.getElementById("username").value;
   passwordInput = document.getElementById("password").value;
@@ -176,7 +176,7 @@ var fnPostLogin = function() {
 
   xhr.open("POST", "https://prueba3.com/api/login", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-  xhr.addEventListener("load", function() {
+  xhr.addEventListener("load", function () {
     var responseObject = JSON.parse(this.response);
     console.log(responseObject);
     if (responseObject.access_token) {
@@ -194,7 +194,7 @@ var fnPostLogin = function() {
 
   var sendObject = JSON.stringify({
     email: usernameInput,
-    password: passwordInput
+    password: passwordInput,
   });
 
   xhr.send(sendObject);
@@ -212,11 +212,11 @@ var fnPostLogin = function() {
   signOut.className = "signout";
 };
 
-var fnSignOut = function(token) {
+var fnSignOut = function (token) {
   xhr.open("POST", "https://prueba3.com/api/logout", true);
   xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
   xhr.setRequestHeader("Authorization", "Bearer " + token);
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       // Typical action to be performed when the document is ready:
       document.getElementById("polls").innerHTML = xhr.responseText;
@@ -226,16 +226,18 @@ var fnSignOut = function(token) {
 
   localStorage.removeItem("token");
 
-  document.location.replace("https://danielvt.com/thePolls.html");
+  document.location.replace("https://127.0.0.1:5500/index.html");
+
+  // document.location.replace("https://danielvt.com/thePolls.html");
 };
 
-var fnAddEventListeners = function() {
+var fnAddEventListeners = function () {
   signOut.addEventListener("click", fnSignOut);
   submitBtn.addEventListener("click", fnPostLogin);
-  thePolls.addEventListener("click", function() {
+  thePolls.addEventListener("click", function () {
     fnGetPolls(localStorage.getItem("token"));
   });
-  signOut.addEventListener("click", function() {
+  signOut.addEventListener("click", function () {
     fnSignOut(localStorage.getItem("token"));
   });
 };
@@ -252,7 +254,7 @@ if (localStorage.getItem("token") !== null) {
     "Authorization",
     "Bearer " + localStorage.getItem("token")
   );
-  xhr.onreadystatechange = function() {
+  xhr.onreadystatechange = function () {
     if (this.readyState == 4 && this.status == 200) {
       let jsonResponse = JSON.parse(xhr.responseText);
       theToken.innerHTML = `Name: ${jsonResponse.success.name} &nbsp;  &nbsp; Email:${jsonResponse.success.email}`;

@@ -162,9 +162,24 @@
               <div>Remember me</div>
               <!-- </label> -->
             </div>
-            <div id="forgot">
-              <div><a>Forgot password?</a></div>
+            <div>
+              <div id="forgot"><a>Forgot password?</a></div>
               <!-- <div><a id="register">Register</a></div> -->
+              <br />
+              <div id="forgotform" class="visible">
+                <input type="text" placeholder="email" id="forgotuseremail" />
+                <button id="submitforgot">Submit</button>
+              </div>
+            </div>
+            <div id="popup1" class="overlay visible">
+              <div class="popup">
+                <h2>Here I am</h2>
+                <a class="close" href="#invitees">×</a>
+                <div class="content">
+                  Thank you to let me appear, but now I'm done so you can close
+                  this window.
+                </div>
+              </div>
             </div>
           </form>
         </div>

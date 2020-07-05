@@ -1,4 +1,4 @@
-(function() {
+(function () {
   let signOut = document.getElementById("closeBtn");
   let mainNav = document.getElementById("main-nav__items");
   let mobileNavCloseBtn = document.getElementById("closeMobileNav");
@@ -12,13 +12,13 @@
 
   let theurl = "https://prueba3.com/api/user";
 
-  var fnSignOut = function(token) {
+  var fnSignOut = function (token) {
     console.log("Sign out");
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "https://prueba3.com/api/logout", true);
     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
     xhr.setRequestHeader("Authorization", "Bearer " + token);
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         // Typical action to be performed when the document is ready:
         // document.getElementById("polls").innerHTML = xhr.responseText;
@@ -28,7 +28,9 @@
 
     localStorage.removeItem("token");
 
-    document.location.replace("https://danielvt.com/index.html");
+    // document.location.replace("https://danielvt.com/index.html");
+
+    document.location.replace("https://127.0.0.1:5500/index.html");
   };
 
   // Promise
@@ -42,7 +44,7 @@
       "Authorization",
       "Bearer " + localStorage.getItem("token")
     );
-    xhr.onreadystatechange = function() {
+    xhr.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
         let jsonResponse = JSON.parse(xhr.responseText);
         //theToken.innerHTML = `Name: ${jsonResponse.success.name} &nbsp;  &nbsp; Email:${jsonResponse.success.email}`;
@@ -74,7 +76,7 @@
     // theMain.style.height = "100%";
   }
 
-  togglemobileNav.addEventListener("click", function() {
+  togglemobileNav.addEventListener("click", function () {
     // mobileNav.style.display = "block";
     // backdrop.style.display = "block";
     console.log("something");
