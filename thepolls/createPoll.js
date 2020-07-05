@@ -89,6 +89,7 @@ let AddOneMoreAnswerField = function (nextAnswer) {
 
   newlabel.innerHTML = "Escribir aqui Respuesta";
   newinputtext.setAttribute("type", "text");
+  newinputtext.setAttribute("class", "createPoll");
   nextAnswer = mynextAnswer;
 
   // console.log(nextAnswer);
@@ -148,14 +149,20 @@ var renderend = function () {
 };
 
 let createPollArray = function () {
-  let inputs = questions.getElementsByTagName("input");
+  // let inputs = questions.getElementsByTagName("input");
+  let inputs = questions.getElementsByClassName("createPoll");
   let arr = Array.from(inputs);
   console.log(arr);
   let data = [];
 
   arr.forEach(function (item) {
     // let obj = ;
-    data.push([item.name, item.value]);
+    if (item.value) {
+      data.push([item.name, item.value]);
+    } else {
+      alert("Escribe algo porfavor");
+      // throw new Error("Escribe Algo porfavor!");
+    }
   });
   // console.log(JSON.stringify(arr));
   // console.log(data);
@@ -169,7 +176,11 @@ let createPollArray2 = function () {
 
   arr.forEach(function (item) {
     // let obj = ;
-    data.push([item.name, item.value]);
+    if (item.value != "") {
+      data.push([item.name, item.value]);
+    } else {
+      alert("Escribe algo por favor");
+    }
   });
   // console.log(JSON.stringify(arr));
   // console.log(data);

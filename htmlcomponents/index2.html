@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="example">This will use the CSS background</div>
+    <button id="button">Not tomato</button>
+    <script>
+      const shadowRoot = document
+        .getElementById("example")
+        .attachShadow({ mode: "open" });
+      shadowRoot.innerHTML = `<style>
+button {
+  background: tomato;
+  color: white;
+}
+</style>
+<h1 id="button"><slot></slot> tomatom & potatoe</h1>`;
+    </script>
+  </body>
+</html>

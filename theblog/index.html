@@ -4,9 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Encuestas</title>
+    <title>Blog</title>
     <link rel="stylesheet" href="../shared.css" />
-    <link rel="stylesheet" href="thepolls.css" />
+    <link rel="stylesheet" href="theblog.css" />
   </head>
 
   <body>
@@ -42,8 +42,9 @@
           <li class="main-nav__item">
             <a href="../juntos/index.html">Juntos</a>
           </li>
+
           <li class="mobile-nav__item main-nav__item">
-            <a href="../theblog/index.html">The Blog</a>
+            <a href="index.html">The Blog</a>
           </li>
 
           <li class="main-nav__item">
@@ -66,7 +67,7 @@
         </li>
 
         <li class="mobile-nav__item main-nav__item">
-          <a href="../theblog/index.html">The Blog</a>
+          <a href="index.html">The Blog</a>
         </li>
 
         <li class="mobile-nav__item">
@@ -83,15 +84,58 @@
     <main>
       <span id="thetoken" style="color: white;">NULL</span>
       <section class="jumbotron">
-        <h1>Encuestas</h1>
+        <h1>Nuestro Blog</h1>
         <p class="lead">
-          Y usted que opina? <br /><a href="createPoll.html">Crear Encuesta</a>
+          Mejorando el Blog
         </p>
       </section>
-      <section id="thepolls">
-        <!-- <div>
+      <section class="post-list">
+        
+        <article>
+          <a href="http://google.com">
+          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
+          <div class="post-content">
+            <h1>No Nonsense</h1>
+            <p>This is not a componet</p>
+          </div>
+        </article>
+        </a>
+        </a>
+
+
+        <a hfre="NoNonsense" class="article">
+        <article>
+          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
+          <div class="post-content">
+            <h1>Improving</h1>
+            <p>attempt to build a Vanilla Componet</p>
+          </div>
+        </article>
+          </a>
+
+        <a hfre="NoNonsense" class="article">
+          <article>
+          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
+          <div class="post-content">
+            <h1>Enhanced</h1>
+            <p>An HTML component</p>
+          </div>
+        </article>
+        </a>
+        
+
+       <!-- <PostPreview id="1" :is-admin="isAdmin" thumbnail="https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
+          title="Hello there!" previewText="This my first post!" />
+        <PostPreview id="2" :is-admin="isAdmin" thumbnail="https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
+          title="Hello there - the second time!" previewText="This my second post!" />
+        <PostPreview id="3" :is-admin="isAdmin" thumbnail="https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg"
+          title="Hi!" previewText="This my third post!" /> -->
+
+      </section>
+    <!--   <section id="thepolls">
+        <div>
                 <h2>Cargando encuestas ....</h2>
-            </div> -->
+            </div> 
         <div id="thequestion">
           <h3>Porfavor esperar a cargar la página...</h3>
         </div>
@@ -118,7 +162,7 @@
         </span>
       </section>
     </main>
-    <!-- <template id="thepollstemplate">
+      <template id="thepollstemplate">
         <div id="thepolls">
             <div id="thequestion">
                 <h3>Fake dummy question?</h3>
