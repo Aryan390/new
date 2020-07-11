@@ -1,0 +1,206 @@
+@font-face{
+	font-family: Montserrat;
+	src: url(../assets/Montserrat-Regular.otf);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Montserrat;
+}
+:root{
+    --border: 5px;
+    --margen: 0 20px;
+    --botonColor: #FF5C00;
+    --estrellasColor: #E9F93B;
+}
+body{
+    background-color: black;
+    color: white;
+    min-width: 320px;
+}
+.foro_post{
+    background-color: rgb(66, 66, 66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 450px;
+    margin: var(--margen);
+    border-radius: var(--border);
+}
+/*----------------------------SEPARADOR------------------------------------------*/
+.header_forum{
+    font-size: 1.6rem;
+    width: 150px;
+    margin: 20px 0;
+    margin-left: 20px;
+}
+/*-----------------------------FORMULARIO-----------------------------------------*/
+.contenedor_formulario{
+    width: 100%;
+}
+.contenedor_comentario{
+    width: 100%;
+    padding: var(--margen);
+}
+.comentario{
+    width: 100%;
+    min-width: 100%;
+    max-width: 100%;
+    height: 150px;
+    min-height: 150px;
+    max-height: 150px;
+    padding: 5px;
+    background-color: #C4C4C4;
+    outline: none;
+    resize: none;
+    border-radius: var(--border);
+}
+.comentario::placeholder{
+    color: rgb(26, 26, 26);
+}
+.contenedor_botonPost{
+    display: flex;
+    justify-content: flex-end;
+    margin: var(--margen);
+    margin-top: 5px;
+}
+.boton_post,
+.comentarios_reply span{
+    background-color: var(--botonColor);
+    border: 0;
+    padding: 5px 20px;
+    color: white;
+    border-radius: var(--border);
+    cursor: pointer;
+}
+.comentarios_reply span{
+    padding: 2px 10px;
+    font-size: 0.7rem;
+}
+/*--------------------------------TARJETAS COMENTARIOS--------------------------------------*/
+.contenedor_comentarios{
+    margin: var(--margen);
+    color: black;
+}
+.tarjeta_comentario{
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #F3F3F3;
+    border-radius: var(--border);
+}
+.header_comentario{
+    display: flex;
+    margin-bottom: 10px;
+}
+.contenedor_imagenPerfil img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+.perfil{
+    width: calc(100% - 100px);
+    padding-left: 20px;
+}
+.estrellas{
+    display: flex;
+    margin-bottom: 2px;
+}
+.estrellas span{
+   background-color: #C4C4C4;
+   color: var(--estrellasColor);
+   margin-right: 10px;
+   width: 30px;
+   height: 30px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 1.7rem;
+   border-radius: var(--border);
+   padding-bottom: 5px;
+}
+.nota{
+    margin-left: 5px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    color: rgb(77, 77, 77);
+}
+.nombre_perfil{
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+.texto_comentario{
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+.footer_comentario{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.likes{
+    display: flex;
+    flex: 1 1;
+}
+.likes div{
+    margin-right: 15px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+.likes div img{
+    height: 25px;
+    width: 25px;
+    margin-right: 5px;
+}
+.likes div span{
+    margin-top: 2px;
+    font-size: 0.8rem;
+}
+.like,
+.dislike{
+    transform: scaleX(-1);
+    cursor: pointer;
+}
+.like{
+    transform: rotateX(180deg) scaleX(-1);
+}
+.comentarios_boton,
+.comentarios_reply{
+    flex: 1 1;
+    display: flex;
+    justify-content: flex-end;
+}
+.comentarios_boton{
+    cursor: pointer;  
+    color: rgb(107, 107, 107);
+}
+/*---------------------------------SUB COMENTARIOS-------------------------------------*/
+.tarjeta_subcomentario{
+    padding: 20px;
+}
+.subcomentario{
+    background-color: #D9D9D9;
+    border-radius: var(--border);
+    margin: 10px 10px 0 10px;
+}
+.footer_subComentario .comentarios_boton{
+    font-size: 0.9rem;
+}
+.subcomentario .contenedor_imagenPerfil img{
+    width: 60px;
+    height: 60px;
+} 
+.subcomentario .nombre_perfil{
+    font-weight: bold;
+    height: 100%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+.subcomentario .texto_comentario{
+    font-size: 0.9rem;
+}

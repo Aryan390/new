@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Document</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+
+  <style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    body {
+      margin-top: 20px;
+    }
+
+    .panel-body:not(.two-col) {
+      padding: 0px;
+    }
+
+    .glyphicon {
+      margin-right: 5px;
+    }
+
+    .glyphicon-new-window {
+      margin-left: 5px;
+    }
+
+    .panel-body .radio,
+    .panel-body .checkbox {
+      margin-top: 0px;
+      margin-bottom: 0px;
+    }
+
+    .panel-body .list-group {
+      margin-bottom: 0;
+    }
+
+    .margin-bottom-none {
+      margin-bottom: 0;
+    }
+
+    .panel-body .radio label,
+    .panel-body .checkbox label {
+      display: block;
+    }
+  </style>
+  <!-- Custom styles for this template -->
+  <!-- <link href="navbar-navbar-top-fixed.css" rel="stylesheet" /> -->
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet"
+    id="bootstrap-css" />
+  <!-- <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script> -->
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="mainBootstrap.css" />
+</head>
+
+<body id="body">
+  <div class="container">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Fixed navbar</a>
+      <span id="token" style="color:white;">NULL</span>
+      <!-- <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarCollapse"
+          aria-controls="navbarCollapse"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button> -->
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+          </li>
+        </ul>
+        <!-- <form class="form-inline mt-2 mt-md-0">
+            <input
+              class="form-control mr-sm-2"
+              type="text"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form> -->
+      </div>
+    </nav>
+  </div>
+  <!-- end container-->
+  <div class="container">
+    <section class="jumbotron text-center">
+      <h1>Album example</h1>
+      <p class="lead text-muted">
+        Something short and leading about the collection below—its contents,
+        the creator, etc. Make it short and sweet, but not too short so folks
+        don’t simply skip over it entirely.
+      </p>
+      <p>
+        <a href="#" class="btn btn-primary my-2">Main call to action</a>
+        <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+      </p>
+    </section>
+  </div>
+  <!-- <h3>Login Web Form</h3> -->
+
+  <!-- <div id="token">NULL</div> -->
+  <div class="container">
+    <div id="polls"><button id="thepolls">Get The Polls</button></div>
+  </div>
+
+  <form id="theform" method="post">
+    <div class="imgcontainer">
+      <img src="img_avatar2.png" alt="Avatar" class="avatar" />
+    </div>
+
+    <div class="container">
+      <label for="uname"><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" id="username" name="uname" required />
+
+      <label for="psw"><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" id="password" required />
+
+      <button type="submit" id="submit">Login</button>
+      <label>
+        <input type="checkbox" checked="checked" name="remember" /> Remember
+        me
+      </label>
+    </div>
+
+    <template id="answerresults">
+      <strong>Windows PC</strong><span class="pull-right">30%</span>
+      <div class="progress progress-danger active">
+        <div class="bar" style="width: 30%;"></div>
+      </div>
+    </template>
+
+    <template id="thePollsHTML">
+
+      <!-- <main role="main" class="container" style="margin-top:80px">
+          <div class="jumbotron">
+            <h1>Navbar example</h1>
+            <p class="lead">
+              This example is a quick exercise to illustrate how fixed to top
+              navbar works. As you scroll, it will remain fixed to the top of
+              your browser’s viewport.
+            </p>
+            <a
+              class="btn btn-lg btn-primary"
+              href="/docs/4.4/components/navbar/"
+              role="button"
+              >View navbar docs &raquo;</a
+            >
+          </div> -->
+      </main>
+
+      <!-- <div class="container">
+          <div class="row">
+            <div class="col-md-8 offset-md-2">
+              <h5 id="question">Poll: Where do you usually browse</h5>
+              <div id="answers">
+                <strong>Windows PC</strong><span class="pull-right">30%</span>
+                <div class="progress progress-danger active">
+                  <div class="bar" style="width: 30%;"></div>
+                </div>
+                <strong>Mac</strong><span class="pull-right">40%</span>
+                <div class="progress progress-info active">
+                  <div class="bar" style="width: 40%;"></div>
+                </div>
+                <strong>iPad/iPhone</strong><span class="pull-right">10%</span>
+                <div class="progress progress-striped active">
+                  <div class="bar" style="width: 10%;"></div>
+                </div>
+                <strong>Android</strong><span class="pull-right">5%</span>
+                <div class="progress progress-success active">
+                  <div class="bar" style="width: 5%;"></div>
+                </div>
+                <strong>Others</strong><span class="pull-right">15%</span>
+                <div class="progress progress-warning active">
+                  <div class="bar" style="width: 15%;"></div>
+                </div>
+
+                <p>
+                  <a href="#" class="btn btn-large btn-success">Vote</a>
+                  <a href="#" class="pull-right">View detailed results</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
+      <div class="container" col="thePollBoot">
+        <div class="col-md-4"></div>
+
+        <div class="col-md-10 offset-md-1">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title" id="questions">
+                Please Rate our service
+              </h3>
+            </div>
+            <div class="panel-body">
+              <ul class="list-group" id="answers2">
+                <li class="list-group-item">
+                  <strong>Windows PC</strong><span class="pull-right">30%</span>
+                  <div class="progress progress-danger active">
+                    <div class="bar" style="width: 30%;"></div>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="checkbox">
+                    <label>
+                      <input type="radio" value="" name="optradio2" /> Good
+                    </label>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="" /> Satisfactory
+                    </label>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" value="" /> Needs Improvement
+                    </label>
+                  </div>
+                </li>
+                <li class="list-group-item">
+                  <div class="checkbox">
+                    <label> <input type="checkbox" value="" /> Poor </label>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="panel-footer text-center">
+              <button type="button" id="nextPollBtn" class="btn btn-primary btn-block btn-sm">
+                Next Poll
+              </button>
+              <!-- <a href="#" class="small">View Result</a> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </template>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script src="jspolls.js"></script>
+</body>
+
+</html>
+
+<!-- {access_token:
+"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5MD…_t9Bsfg23xqqVIusrh-q6K-elQQmlEkhJSBEvMA1A4Kr92Ul4"}access_token:
+"eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImY5MDM4ODk1NjQzODU2YjI0MWUwYzg5NWE4NGE5NDUyNTE1NGJiYzQ1YWI0MTM5YjZjODA4MGIzY2E2ODY3NTVmMWQzMDdhZGMyZDZhZDEzIn0.eyJhdWQiOiIxIiwianRpIjoiZjkwMzg4OTU2NDM4NTZiMjQxZTBjODk1YTg0YTk0NTI1MTU0YmJjNDVhYjQxMzliNmM4MDgwYjNjYTY4Njc1NWYxZDMwN2FkYzJkNmFkMTMiLCJpYXQiOjE1NzYxMjcwMjEsIm5iZiI6MTU3NjEyNzAyMSwiZXhwIjoxNjA3NzQ5NDIxLCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.nyPl30Xa6WGoJyrQXQL0tq5L2VVBFFJQeGwioEYmffH9rgpRvdroKOexDZ4l5X_wzE9bOtUhcm7NK1QjMdAzEekwECYtUT0tsNdVzvfVUoMI0QiW1bXOTX0x6ab1jaEI0BsiFMkWHl87KRawktZMgtS2hnnqOcx39HZdLvWg9uLS8uMVKhBajKOW4hajjlAsQZiDAYxSIVg44PadfZL1A4y0JRz4moWo-qVtIjiq9Js5QgfywQdDfaV56g3Gp8XdpwExEYGkTgTd2zSdGluR_ELOZ8hfhB7Grjw3Dg4qwzSZTcBsLARb8Gp-zcIyON_-V1qn9mUkWNFfOFQyO58egG9F_BSHFQLgL6x8xxEH9LD8yXPHWAjbciedIb_uxksjHEdr0rYysvzeRMqIwGiYiPcezv8B8b0wIguM2aG-PUWS0IUc3I-rHtaRjAfdBBe2zTozZ-aGNVJbwC1Mct5cjrqMrttlGNBXIj9IYeEFJ8R2BHzKrwxsWtGudtql7aNoX7ujZxzqrio0kKqRCpmnHQFCLF0JSfjU500Tb2PHiqR3k-UsbyQGoPZeNvLtdIiFVP9wPtv_o4a7AxTKoaIbOx5bg7VWfU29Unm7uobeoNSRblVzb3M7XUWjU7_t9Bsfg23xqqVIusrh-q6K-elQQmlEkhJSBEvMA1A4Kr92Ul4"__proto__:
+Object -->

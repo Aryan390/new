@@ -1,0 +1,79 @@
+#thetoken {
+  display: none;
+}
+
+#pollnextBtn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: #ad974f;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.1rem;
+  width: 100%;
+  border: none;
+  box-shadow: 0px 1px 1px #ccc;
+  margin-top: 1rem;
+}
+
+#thepolls {
+  width: 85%;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+  background-color: #e9ecef;
+  padding: 2rem;
+}
+
+label {
+  display: block;
+  margin-left: 20px;
+  padding: 0rem 0.5rem 0 0;
+  width: 100%;
+  border-right: none;
+}
+
+#theanswers {
+  width: 100%;
+}
+
+#theanswers div {
+  width: 100%;
+  /* margin: 1rem 0; */
+  padding: 1rem 0rem 0.5rem 0rem;
+  /* box-shadow: 0px 2px 0px 0px #ccc; */
+  border-radius: 4px;
+}
+
+#polls-footer {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  box-shadow: 0 0 0 0 #ccc;
+}
+
+/* the createPoll */
+
+#theCreatePoll {
+  width: 90%;
+  border-radius: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+  background-color: #e9ecef;
+  padding: 1rem;
+}
+
+.createPoll {
+  width: 100%;
+  margin-left: -1em;
+}
+
+#questions {
+  flex-direction: column;
+}

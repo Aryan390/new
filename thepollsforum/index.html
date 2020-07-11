@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../shared.css" />
+    <link rel="stylesheet" href="thepolls.css" />
+
+    <link rel="stylesheet" href="src/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="src/css/responsive.css" type="text/css" />
+    <title>Forum Colliseum</title>
+    <style>
+      #thepolls {
+        margin-bottom: 25rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="foro_post">
+      <main>
+        <span id="thetoken" style="color: white;">NULL</span>
+        <section class="jumbotron">
+          <h1>Encuestas</h1>
+          <p class="lead">
+            Y usted que opina? <br /><a href="createPoll.html"
+              >Crear Encuesta</a
+            >
+          </p>
+        </section>
+        <section id="thepolls">
+          <!-- <div>
+                      <h2>Cargando encuestas ....</h2>
+                  </div> -->
+          <div id="thequestion">
+            <h3>Porfavor esperar a cargar la página...</h3>
+          </div>
+
+          <div id="theanswers">
+            <div>
+              <label for="radio1">
+                <input type="radio" name="radio1" value="dynamic" />
+                <span class="realanswer"
+                  >Porfavor esperar a cargar la página...
+                </span>
+              </label>
+            </div>
+            <div>
+              <label for="radio2">
+                <input type="radio" name="radio2" value="dynamic" /> ya debería
+                de cargar....
+              </label>
+            </div>
+          </div>
+
+          <span id="polls-footer">
+            <button id="pollnextBtn" type="button">Vote & Next Poll</button>
+          </span>
+        </section>
+      </main>
+    </section>
+    <div class="header_forum">FORUM COLISSEUM</div>
+    <div class="contenedor_formulario">
+      <form>
+        <div class="contenedor_comentario">
+          <textarea
+            class="comentario"
+            placeholder="Escribe tu mensaje"
+          ></textarea>
+        </div>
+        <div class="contenedor_botonPost">
+          <button class="boton_post" type="submit">Post</button>
+        </div>
+      </form>
+    </div>
+    <!--TARJETA COMENTARIO-->
+    <div id="contenedor_comentario" class="contenedor_comentarios">
+      <!--SUB COMENTARIO-->
+      <!--   <div class="subcomentario">
+            <div class="tarjeta_subcomentario">
+                <div class="header_comentario">
+                    <div class="contenedor_imagenPerfil">
+                        <img src="src/assets/mujer.jpg" alt="mujer cara" />
+                    </div>
+                    <div class="perfil">
+                        <div class="nombre_perfil">
+                            <span>Daniela Sulvaran</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="texto_comentario">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vel cupiditate magnam reprehenderit veritatis facere debitis asperiores aperiam ad, dicta, consequatur quas quod ipsa? Consequatur necessitatibus sapiente dolorum soluta voluptatem.</p>
+                </div>
+                <div class="footer_comentario footer_subComentario">
+                    <div class="likes">
+                    <div> <img class="thumb like"src="src/assets/thumb.png"/> <span>7</span> </div>
+                    <div> <img class="thumb dislike" src="src/assets/thumb.png"/> <span>10</span> </div>
+                    </div>
+                    <div class="comentarios_reply">
+                        <span>Reply</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        Final Subcomentario
+    </div>-->
+    </div>
+
+    <script defer src="../shared.js"></script>
+    <script defer src="jspolls2.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
+    <script src="src/js/scripts.js"></script>
+  </body>
+</html>
