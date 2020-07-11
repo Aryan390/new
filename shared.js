@@ -28,9 +28,9 @@
 
     localStorage.removeItem("token");
 
-    // document.location.replace("https://danielvt.com/index.html");
+    document.location.replace("https://danielvt.com/index.html");
 
-    document.location.replace("https://127.0.0.1:5500/index.html");
+    // document.location.replace("https://127.0.0.1:5500/index.html");
   };
 
   // Promise

@@ -82,8 +82,8 @@ function xhrsignup() {
       }
 
       setTimeout(function () {
-        document.location.replace("https://127.0.0.1:5500/index.html");
-        // document.location.replace("https://danielvt.com/index.html");
+        // document.location.replace("https://127.0.0.1:5500/index.html");
+        document.location.replace("https://danielvt.com/index.html");
       }, 2200);
     }
   };
@@ -215,9 +215,9 @@ var fnSignOut = function (token) {
 
   localStorage.removeItem("token");
 
-  // document.location.replace("https://danielvt.com/index.html");
+  document.location.replace("https://danielvt.com/index.html");
 
-  document.location.replace("https://127.0.0.1:5500/index.html");
+  // document.location.replace("https://127.0.0.1:5500/index.html");
 };
 
 var fnAddEventListeners = function () {
