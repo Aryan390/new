@@ -1,12 +1,17 @@
 (function () {
   let signOut = document.getElementById("closeBtn");
-  let mainNav = document.getElementById("main-nav__items");
+  // let mainNav = document.getElementById("main-nav__items");
   let mobileNavCloseBtn = document.getElementById("closeMobileNav");
   let togglemobileNav = document.querySelector(".toggle-button");
   let mobileNav = document.querySelector(".mobile-nav");
   let backdrop = document.querySelector(".backdrop");
   let closeBtn = document.querySelector("#closeBtn");
   let userEmail = "null";
+  let forgotBackground = document.getElementById('forgot-background')
+  let xBtn = document.getElementById('x-mark')
+  let forgotPass = document.getElementById("forgot");
+  let loginSection = document.getElementById('login')
+
 
   // let theuser = document.getElementById("theuser");
 
@@ -80,7 +85,8 @@
     // mobileNav.style.display = "block";
     // backdrop.style.display = "block";
     console.log("something");
-    mobileNav.classList.add("open");
+    // mobileNav.classList.add("open");
+    mobileNav.classList.add('navSlide')
     backdrop.classList.add("open");
   });
 
@@ -95,9 +101,29 @@
     // if (modal) {
     //   modal.classList.remove("open");
     // }
-    mobileNav.classList.remove("open");
+    // mobileNav.classList.remove("open");
+    mobileNav.classList.remove('navSlide')
     backdrop.classList.remove("open");
   }
 
   closeBtn.addEventListener("click", fnSignOut);
 })();
+
+
+// email box toggling onclick of 'forgot password' 
+function toggleEmail(){
+  forgotBackground.classList.toggle('visible')
+  forgotform.classList.toggle("visible");
+}
+// event listener for the forgot password
+if(forgotPass){
+  forgotPass.addEventListener('click',toggleEmail)
+}
+
+// functionality for disappearance of the forgot-email pop-up
+forgotBackground.addEventListener('click',toggleEmail)
+
+xBtn.addEventListener('click',toggleEmail)
+
+
+console.log('some');

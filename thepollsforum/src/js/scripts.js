@@ -1,9 +1,14 @@
 var lista = [];
 var urlUsers = 'https://prueba3.com/api/getPosts';
 /*var urlUsers = 'comentarios.json';*/
+let contenedorComentario = document.getElementById('contenedor_comentario');
+let viewBtn =document.getElementById('view-comments')
+let navBtn = document.getElementById('toggle-button')
 
+// function for getting response and calling cargarComentarios using axios
 function recibirUsuarios(){
-    axios.get(urlUsers).then(response => {
+    axios.get(urlUsers)
+        .then(response => {
         lista = response.data;
         lista.forEach( (elemento) => {
             elemento.comments.forEach( (comentario)=>{
@@ -12,113 +17,90 @@ function recibirUsuarios(){
         })
     });
 }
+
+// function for generating comments
 function cargarComentarios(comentario){
-    let contenedorComentario = document.getElementById('contenedor_comentario');
     let auxComentario = document.createElement("div");
     auxComentario.innerHTML = 
-        `<div id="tarjeta_comentario" class="tarjeta_comentario">
+        `<div id="tarjeta_comentario"           class="tarjeta_comentario">
             <div class="header_comentario">
-                <div class="contenedor_imagenPerfil">
-                    <img src="${comentario.image}" alt="mujer cara" />
-                </div>
+                    <img src="${comentario.image}" alt="mujer cara" class="image"/>
+
                 <div id="perfil" class="perfil">
-                <div id="estrellas" class="estrellas">
-                ${cargarEstrellas(comentario.stars)} 
+                    <div id="estrellas" class="estrellas">
+                        ${cargarEstrellas(comentario.stars)} 
+                    </div>
+                </div>
             </div>
+
+
+            <div class="content-container">
+                <div class="upper-content">
                     <div class="nombre_perfil">
-                        <span>${comentario.username}</span>
+                        <h1>${comentario.username}</h1>
                     </div>
+
+                    <div class="texto_comentario">
+                        <p>${comentario.comment}</p>
+                    </div>
+
                 </div>
-            </div>
-            <div class="texto_comentario">
-                 <p>${comentario.comment}</p>
-            </div>
+
                 <div class="footer_comentario">
-                    <div class="likes">
-                        <div> <img class="thumb like"src="src/assets/thumb.png"/> <span>${comentario.likesDislikes.likes}</span> </div>
-                        <div> <img class="thumb dislike" src="src/assets/thumb.png"/> <span>${comentario.likesDislikes.dislikes}</span> </div>
+
+                    <div class="like-dislike"> 
+                        <img class="thumb like"src="src/assets/thumb.png"/> 
+                        <h3>${comentario.likesDislikes.likes}
+                        </h3> 
                     </div>
-                    <div class="comentarios_boton">
-                        <span>Comentarios(15)</span>
+
+                    <div class="like-dislike"> 
+                        <img class="thumb dislike" src="src/assets/thumb.png"/> 
+                        <h3>${comentario.likesDislikes.dislikes}</h3> 
                     </div>
+
                     <div class="comentarios_reply">
-                        <span>Reply</span>
+                        <h3>Reply</h3>
                     </div>
                 </div>
+                
+                <div class="comentarios_boton">
+                    <img src="../images/icons8-expand-arrow-24.png/>"
+                    <h3>ver 15 commentarios</h3>
+                </div> 
+            </div>
+            
         </div>`;
         contenedorComentario.appendChild(auxComentario);    
 }
+
+// function for generating no. of stars and the container boxes of the stars
 function cargarEstrellas(numeroEstrellas){
    let nodo = document.createElement("div");
-   switch (numeroEstrellas){
-        case 1:
-            return nodo.innerHTML=
-            `<span class="estrella">&#9733;</span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>` 
-        break;
-        case 2:
-            return nodo.innerHTML=
-            `<span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>` 
-        break;
-        case 3:
-            return nodo.innerHTML=
-            `<span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>`     
-        break;
-        case 4:
-            return nodo.innerHTML=
-            `<span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella"></span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>`
-        break;
-        case 5:
-            return nodo.innerHTML=
-            `<span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <span class="estrella">&#9733;</span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>`
-        break;
-        default:
-            return nodo.innerHTML=
-            `<span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <span class="estrella"></span>
-            <div class="nota">
-             <p>Note: ${numeroEstrellas}/5</p>
-            </div>` 
-        break;
-   }
 
+    for(let i=1;i<=5;i++){
+        let estrella = document.createElement('img')
+        estrella.src = '../images/star.png'
+        if(i<=numeroEstrellas){
+            estrella.classList = 'estrella'
+            nodo.appendChild(estrella)
+        }else{
+            estrella.classList = 'estrella fade'
+            nodo.appendChild(estrella)
+        }
+    }
+    console.log(nodo);
+    return nodo.innerHTML
 }
 
 recibirUsuarios();
+
+// event listener for view comments button
+viewBtn.addEventListener('click',function(){
+    contenedorComentario.classList.toggle('fade')
+    if(viewBtn.innerHTML ==='view comments'){
+        viewBtn.innerHTML = 'hide comments'
+    }else{
+        viewBtn.innerHTML = 'view comments'
+    }
+})

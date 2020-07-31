@@ -2,19 +2,6 @@
   display: none;
 }
 
-#pollnextBtn {
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  background-color: #ad974f;
-  font-weight: bold;
-  color: white;
-  letter-spacing: 0.1rem;
-  width: 100%;
-  border: none;
-  box-shadow: 0px 1px 1px #ccc;
-  margin-top: 1rem;
-}
-
 #thepolls {
   width: 85%;
   border-radius: 0.3rem;
@@ -28,7 +15,7 @@
 
 label {
   display: block;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   padding: 0rem 0.5rem 0 0;
   width: 100%;
   border-right: none;
@@ -77,3 +64,148 @@ label {
 #questions {
   flex-direction: column;
 }
+
+/* polls(encuesta) detail styling */
+.polls-background{
+  background: url('../images/kyle-glenn-kvIAk3J_A1c-unsplash.jpg') no-repeat center center/cover;
+  min-height: 55vh;
+  width: 100vw;
+  border-bottom: 7px solid rgb(8, 6, 109);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.polls-heading{
+  background: rgba(13, 52, 77, 0.829);
+  width: 40%;
+  height: 50%;
+  margin: 0 auto;
+  /* margin-right: 1rem; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: .5rem 1rem;
+  border-radius: 10px;
+  border: 2px solid rgb(17, 125, 133);
+  font-size: 1.4rem;
+}
+
+.polls-heading h1{
+  font-size: 2.5rem;
+  margin: .5rem 0;
+  margin-bottom: 1rem;
+}
+
+.foro_post{
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  width: 100%;
+}
+
+.polls-main{
+  max-width: 1100px;
+  margin: 0 auto;
+  margin-top: 1rem;
+  background: #d4d3d3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 2px 10px 5px rgba(0, 0, 0, 0.384);
+}
+
+#thequestion{
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: .5rem;
+}
+
+#thepolls{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #d4d3d3;
+  /* background: rgb(101, 101, 139); */
+  height: 100%;
+}
+
+
+#theanswers div{
+  text-align: center;
+}
+
+#pollnextBtn{
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 1rem;
+  height: 50px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all .3s ease-in;
+  background: rgb(57, 109, 206);
+  color: rgb(255, 255, 255);
+  border: 1px solid black;
+}
+
+#pollnextBtn:hover{
+  color: rgb(57, 109, 206);
+  background: white;
+}
+
+/* responsiveness for foro_post container */
+@media(max-width: 1100px){
+  .polls-main{
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 800px){
+  .polls-main{
+    max-width: 80%;
+    text-align: center;
+  }
+  #thequestion{
+    font-size: 1rem;
+    width: 100%;
+  }
+  #thepolls{
+    padding: 1rem;
+  }
+
+  #pollnextBtn{
+    width: 70%;
+  }
+}
+
+@media(max-width: 450px){
+  .polls-main{
+    max-width: 90%;
+  }
+  .polls-heading{
+    width: 30%;
+    height: 55%;
+  }
+}
+
+@media( max-height: 375px){
+  .polls-heading{
+    height: 62%;
+  }
+}
+@media( max-height: 335px){
+  .polls-heading{
+    height: 69%;
+  }
+}
+
+@media(max-width: 300px){
+  .polls-main{
+    max-width: 250px;
+  }
+}
+

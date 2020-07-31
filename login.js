@@ -23,6 +23,10 @@ let together = document.getElementById("together");
 let forgotpass = document.getElementById("forgot");
 let forgotform = document.getElementById("forgotform");
 let submitforgot = document.getElementById("submitforgot");
+let forgotBackground = document.getElementById('forgot-background')
+let xBtn = document.getElementById('x-mark')
+
+
 // alert("hello");
 
 function xhrsignup() {
@@ -156,6 +160,7 @@ var fnPostLogin = function () {
           "Accepted user " + responseObject.access_token.slice(0, 19) + "....";
         localStorage.setItem("token", responseObject.access_token);
         theForm.style.display = "none";
+        loginSection.remove()
         // thePolls.style.display = "block";
         // theToken.style.display = "block";
         // signOut.style.display = "inline-block";
@@ -239,6 +244,8 @@ function mainHeaderOpen() {
 
   mainH.style.display = "flex";
   jumbotron.style.display = "block";
+  // conditional rendering of the login page/section
+  loginSection.remove()
   // mainHb.style.display = "inline-block";
   // mainHba.style.display = "inline-block";
 }
@@ -289,13 +296,6 @@ fnAddEventListeners();
 //   loginSection.style.display = "none";
 //   invite2.style.display = "block";
 // });
-
-forgotpass.addEventListener("click", function () {
-  console.log("clicked!");
-  // alert("hey");
-  // joinFailAlert();
-  forgotform.classList.toggle("visible");
-});
 
 // Alert when user invited response from api
 function joinFailAlert() {
@@ -358,6 +358,22 @@ function submitforgotajax() {
   });
 
   xhr.send(sendObject);
+  // toggleEmail() is for removing the forgot-email container
+  toggleEmail()
 }
 
 submitforgot.addEventListener("click", submitforgotajax);
+
+
+// email box toggling onclick of 'forgot password' 
+function toggleEmail(){
+  forgotBackground.classList.toggle('visible')
+  forgotform.classList.toggle("visible");
+}
+// event listener for the forgot password
+forgotpass.addEventListener('click',toggleEmail)
+
+// functionality for disappearance of the forgot-email pop-up
+forgotBackground.addEventListener('click',toggleEmail)
+
+xBtn.addEventListener('click',toggleEmail)

@@ -1,4 +1,4 @@
-@media only screen and (max-width: 480px){
+/* @media only screen and (max-width: 480px){
     :root{
         --margen: 0 10px;
     }
@@ -48,4 +48,103 @@
     .subcomentario .nombre_perfil{
         font-size: 1rem;
     }
+} */
+
+@media(max-width: 1100px){
+    .contenedor_formulario{  
+      min-width: 700px; 
+    }
+    .contenedor_comentarios{
+        min-width: 700px;
+    }
+  }
+  
+  @media (max-width: 800px){
+    .contenedor_formulario{
+        min-width: 80%;  
+      }
+    .contenedor_comentarios{
+        min-width: 80%;
+    }
+    .polls-heading{
+        width: 80%;
+    }
+    .tarjeta_comentario{
+        max-width: 100%;
+    }
+    .nombre_perfil h1{
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+    .header_comentario{
+        width: 20%;
+    }
+    .content-container{
+        width: 80%;
+    }
+
+    .image{
+        height: 40px;
+        width : 40px;
+    }
+    .estrella{
+        height: 11px;
+        width: 11px;
+    }
+    .texto_comentario{
+        font-size: .75rem;
+    }
+    .thumb{
+        height: 12px;
+        width: 12px;
+    }
+    .like-dislike h3{
+        font-size: .65rem;
+    }
+    .comentarios_reply{
+        font-size: .6rem;
+    }
+    .comentarios_boton{
+        font-size: 10px;
+    }
 }
+
+@media( max-width: 600px){
+    .nombre_perfil h1{
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 450px){
+
+    .contenedor_formulario{
+        min-width: 100%;
+    }
+    .tarjeta_comentario{
+        max-width: 100%;
+        margin-bottom: 10px;
+        border: 1px solid black;
+    }
+    .contenedor_comentarios{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .estrella{
+        height: 10px;
+        width: 10px;
+        margin-right: 2px;
+    }
+}
+
+@media(max-width: 300px){
+    .contenedor_formulario{
+        min-width: 150px;
+    }
+    .tarjeta_comentario{
+        height: 25vh;
+    }
+    .contenedor_comentarios{
+        min-width: 250px;
+    }
+}
+  

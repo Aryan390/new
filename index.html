@@ -15,6 +15,28 @@
   </head>
 
   <body id="body">
+    <!-- forgot-form background -(black) -->
+    <div class="forgotform-background visible" id="forgot-background"></div>
+
+    <!-- forgot-form, appears when clicked forgot-password -->
+    <form id="theform" method="post">
+      <div id="forgotform" class="visible">
+        <div class="x-mark" id="x-mark">
+          <div class="x-mark-2">
+            <img src="./images/icons8-xbox-x-50.png" alt=""
+          class="icons user-x">
+          </div>
+        </div>
+
+        <div class="mail-image">
+          <img src="./images/icons8-important-mail-50.png" alt="" class="icons user-mail">
+        </div>
+        <input type="text" placeholder="email" id="forgotuseremail" class="forgot-email"/>
+        <button id="submitforgot">Submit</button>
+      </div>
+    </form>
+
+
     <span id="token" style="color: white;">NULL</span>
     <div class="backdrop"></div>
 
@@ -43,8 +65,10 @@
         </a> -->
 
         <span id="theuser"></span>
+
       </div>
-      <nav class="main-nav">
+      <!-- hamburger navigation items -->
+      <!-- <nav class="main-nav">
         <ul id="main-nav__items" class="main-nav__items">
           <li class="main-nav__item">
             <a href="juntos/index.html">Juntos</a>
@@ -60,19 +84,19 @@
           <li class="main-nav__item">
             <a href="challenge/index.html">Challenge</a>
           </li>
-          <!-- <li class="main-nav__item main-nav__item--cta">
+          <li class="main-nav__item main-nav__item--cta">
                     <a href="start-hosting/index.html">Entrar</a>
-                </li> -->
+                </li>
         </ul>
-      </nav>
+      </nav> -->
     </header>
     <nav class="mobile-nav">
-      <div id="closeMobileNav">x</div>
+      <button id="closeMobileNav">x</button>
       <ul class="mobile-nav__items">
         <li class="mobile-nav__item">
           <a href="index.html">Home</a>
         </li>
-        <li class="mobile-nav__item main-nav__item">
+        <li class="mobile-nav__item">
           <a href="theblog/index.html">The Blog</a>
         </li>
         <li class="mobile-nav__item">
@@ -87,6 +111,9 @@
       </ul>
     </nav>
     <main id="main">
+      <div class="outer-split">
+        <div class="split"></div>
+      </div>
       <section id="invite2">
         <div class="form-style-8">
           <h2>Join the system</h2>
@@ -133,6 +160,9 @@
           similar. Solo que gane el que mas juegos adivine.
         </p>
       </section>
+
+      
+      <!-- login section of the page -->
       <section id="login" class="login">
         <div class="container">
           <form class="containerform" id="theform" method="post">
@@ -140,8 +170,12 @@
               <img src="images/img_avatar2.png" alt="Avatar" class="avatar" />
             </div>
 
-            <label for="useremail"><b>Username</b></label>
+            <!-- icons for username and password -->
+            <img src="./images/icons8-user-30.png" alt="" class="user-icon icons">
+            <img src="./images/icons8-password-26.png" alt="" class="password-icon icons">
 
+            <!-- username -->
+            <label for="useremail"><b>Username</b></label>
             <input
               type="text"
               placeholder="Enter Username"
@@ -150,8 +184,8 @@
               required
             />
 
+            <!-- password -->
             <label for="userpassword"><b>Password</b></label>
-
             <input
               type="password"
               placeholder="Enter Password"
@@ -160,25 +194,32 @@
               required
             />
 
+            <!-- submit-button -->
             <button type="submit" id="submit" class="loginBtn">Login</button>
 
             <!-- <button type="button" class="cancelbtn">Cancel</button> -->
 
+
+            <!-- remember me checkbox -->
             <div id="rememberme">
               <!-- <label style="display: inline-block"> -->
               <input type="checkbox" checked="checked" name="remember" />
               <div>Remember me</div>
               <!-- </label> -->
             </div>
-            <div>
+
+            <!-- forgot password link -->
+            <div class="forgot-section">
               <div id="forgot"><a>Forgot password?</a></div>
               <!-- <div><a id="register">Register</a></div> -->
               <br />
-              <div id="forgotform" class="visible">
+              <!-- <div id="forgotform" class="visible">
                 <input type="text" placeholder="email" id="forgotuseremail" />
                 <button id="submitforgot">Submit</button>
-              </div>
+              </div> -->
             </div>
+
+            <!-- pop-up in the case the login isn't successful -->
             <div id="popup1" class="overlay visible">
               <div class="popup">
                 <h2>Here I am</h2>

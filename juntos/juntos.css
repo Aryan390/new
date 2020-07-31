@@ -98,8 +98,8 @@ section {
   margin-bottom: 4rem;
 }
 
-invite2 {
-}
+/* invite2 {
+} */
 
 /* this is the alert box for user invite success */
 .box {
@@ -188,4 +188,218 @@ invite2 {
 .popup .content {
   max-height: 30%;
   overflow: auto;
+}
+
+#juntos-main{
+  min-height: 100vh;
+  background: url('../images/duy-pham-Cecb0_8Hx-o-unsplash.jpg') no-repeat center center/cover;
+  position: relative;
+  z-index: 1;
+}
+
+#juntos-main::before{
+  content: '';
+  position : absolute;
+  top: 0 ;
+  left: 0 ;
+  height: 100%;
+  width: 100%;
+  backdrop-filter: blur(12px);
+  z-index: -1;
+}
+
+.juntos-jumbotron{
+  /* position: absolute;
+  top: 5%;
+  left: 50%;
+  transform: translate(-50%,0); */
+  /* background: rgb(90, 80, 80); */
+  width: 100%;
+  text-align: center;
+  color: rgb(207, 65, 8);
+}
+
+.juntos-jumbotron h1{
+  font-size: 2.8rem;
+  /* text-transform: uppercase; */
+}
+
+.juntos-jumbotron p{
+  font-size: 1.3rem;
+  color: rgb(250, 100, 0);
+}
+
+#invitees{
+  background: linear-gradient(45deg,
+  rgba(255, 0, 0, 0.171),
+  rgba(0, 0, 255, 0.13)
+  );
+  backdrop-filter: blur(30px);
+  height: 55%;
+  width: 80%;
+  /* position: absolute;
+  top: 65%;
+  left: 50%;
+  transform: translate(-50%,-65%); */
+  padding: 1rem;
+  text-align: center;
+  border: 4px solid rgb(245, 147, 0);
+  /* padding-top: 2rem; */
+}
+
+#invitees h2{
+  font-size: 2rem;
+  width: 100%;
+  margin-bottom: 2rem;
+  color: rgb(20, 19, 87);
+}
+
+#inviteeForm input:not([type = 'submit']){
+  padding: .7rem 1rem;
+  font-size: 1.3rem;
+  margin: .5rem 0 ;
+  width: 50%;
+  /* display: block; */
+  background: transparent;
+  border: none;
+  position: relative;
+  border-bottom: 3px solid rgb(0, 0, 0)
+}
+
+#inviteeForm input:not([type = 'submit'])::placeholder{
+  color: rgba(0, 0, 0, 0.514);
+}
+
+#submitBtn,
+#getusersinvitees{
+  padding: .5rem .6rem;
+  width: 45%;
+  display: inline-block;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  border: none;
+  cursor: pointer;
+  transition: all .3s ease-in-out
+}
+
+#submitBtn{
+  margin-top: .5rem;
+  background: rgb(112, 10, 54);
+  border: 1px solid rgb(122, 21, 97);
+  color: #f4f4f4;
+}
+
+#getusersinvitees{
+  padding: .9rem 1.2rem;
+  margin: 1rem 0 ;
+  font-size: 1rem;
+  background: black;
+  color: #f4f4f4;
+  border: 1px solid white;
+}
+
+#submitBtn:hover{
+  background: rgb(221, 121, 137);
+}
+
+#getusersinvitees:hover{
+  background: #f4f4f4;
+  color: black;
+  border-color: black;
+}
+
+@media(min-width: 1200px){
+  #invitees{
+    width: 50%;
+  }
+}
+
+/* media queries for the juntos page for responsivenes */
+/* width responsiveness */
+@media (max-width: 450px){
+
+  .juntos-jumbotron{
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+  }
+  .juntos-jumbotron h1{
+    font-size: 2rem;
+  }
+  
+  .juntos-jumbotron p{
+    font-size: 1rem;
+  }
+
+  #invitees{
+    width: 90%;
+    height: 55%;
+    padding: .6rem;
+  }
+
+  #invitees h2{
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  #inviteeForm input:not([type = 'submit']){
+    padding: .5rem;
+    font-size: 1rem;
+    width: 80%;
+  }
+  #submitBtn,
+  #getusersinvitees{
+  width: 90%;
+  }
+}
+
+/* height responsiveness */
+
+@media (min-height: 900px){
+  #invitees{
+    width: 90%;
+    height: 40%;
+    padding: 1.5rem;
+  }
+}
+
+@media ( max-height: 450px){
+  #juntos-main{
+    min-height: 140vh;
+  }
+  .juntos-jumbotron{
+    margin-top: 3rem;
+    margin-bottom: .2rem;
+  }
+  .juntos-jumbotron h1{
+    font-size: 2rem;
+  }
+  
+  .juntos-jumbotron p{
+    font-size: 1rem;
+  }
+
+  #invitees{
+    width: 90%;
+    height: 58%;
+    padding: .6rem;
+  }
+
+  #invitees h2{
+    font-size: 1rem;
+    margin-bottom: .5rem;
+  }
+  #inviteeForm input:not([type = 'submit']){
+    padding: .5rem;
+    font-size: 1rem;
+    width: 80%;
+  }
+  #submitBtn,
+  #getusersinvitees{
+    width: 70%;
+    padding: .3rem 0;
+    display: inline-block;
+  }
+  #submitBtn{
+    padding: .3rem 0 ;
+    height: 30px;
+  }
 }

@@ -10,12 +10,13 @@
       rel="stylesheet"
       type="text/css"
     />
-    <link rel="stylesheet" href="../shared.css" />
     <link rel="stylesheet" href="juntos.css" />
+    <link rel="stylesheet" href="../shared.css" />
   </head>
 
   <body>
     <!-- <span id="token" style="color:white;">NULL</span> -->
+    <div class="red"></div>
     <div class="backdrop"></div>
     <div class="modal"></div>
 
@@ -44,7 +45,7 @@
 
         <span id="theuser"></span>
       </div>
-      <nav class="main-nav">
+      <!-- <nav class="main-nav">
         <ul id="main-nav__items" class="main-nav__items">
           <li class="main-nav__item">
             <a href="index.html">Juntos</a>
@@ -58,53 +59,56 @@
             <a href="../thepollsforum/index.html">Encuestas</a>
           </li>
           <li class="main-nav__item main-nav__item--cta">
-            <!-- <a href="start-hosting/index.html">Entrar</a> -->
+            <a href="start-hosting/index.html">Entrar</a>
           </li>
         </ul>
-      </nav>
+      </nav> -->
     </header>
+    <!-- all screen resolution navigation bar -->
     <nav class="mobile-nav">
-      <div id="closeMobileNav">x</div>
+      <button id="closeMobileNav">x</button>
       <ul class="mobile-nav__items">
         <li class="mobile-nav__item">
-          <a href="index.html">Juntos</a>
+          <a href="../index.html">Home</a>
         </li>
-
-        <li class="mobile-nav__item main-nav__item">
+        <li class="mobile-nav__item">
           <a href="../theblog/index.html">The Blog</a>
         </li>
-
+        <li class="mobile-nav__item">
+          <a href="../juntos/index.html">Juntos</a>
+        </li>
         <li class="mobile-nav__item">
           <a href="../thepollsforum/index.html">Encuestas</a>
         </li>
+        <li class="mobile-nav__item main-nav__item--cta">
+          <a href="challenge/index.html">Challenge</a>
+        </li>
       </ul>
     </nav>
-    <main>
-      <section id="juntos" class="jumbotron" style="border-radius: 1%;">
+    <main id="juntos-main">
+      <section id="juntos" class="juntos-jumbotron" style="border-radius: 1%;">
         <h1>Juntos Podemos Más</h1>
-        <p class="lead">Es muy fácil, entre más seamos mejor.</p>
+        <p>Es muy fácil, entre más seamos mejor.</p>
       </section>
-      <section id="invitees" class="jumbotron">
+      <section id="invitees">
         <h2>Unete y seamos más</h2>
         <form id="inviteeForm">
-          <input
+            <input
             type="text"
             id="useremail"
             name="useremail"
             placeholder="Tu email."
-          />
+            />
           <br />
-          <input
+            <input
             type="text"
             id="username"
             name="username"
-            placeholder="Tu sobrenombre."
-          />
+            placeholder="Tu sobrenombre."/>
+          <br>
           <input
             type="submit"
             id="submitBtn"
-            style="position: absolute;"
-            ;
             name="submit"
             value="+"
           />

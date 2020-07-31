@@ -6,17 +6,14 @@
     <link rel="stylesheet" href="../shared.css" />
     <link rel="stylesheet" href="thepolls.css" />
 
-    <link rel="stylesheet" href="src/css/styles.css" type="text/css" />
-    <link rel="stylesheet" href="src/css/responsive.css" type="text/css" />
+    <link rel="stylesheet" href="./src/css/styles.css" type="text/css" />
+    <link rel="stylesheet" href="./src/css/responsive.css" type="text/css" />
     <title>Forum Colliseum</title>
-    <style>
+    <!-- <style>
       #thepolls {
         margin-bottom: 25rem;
       }
-      body {
-        color: black;
-      }
-    </style>
+    </style> -->
   </head>
   <body>
     <div class="backdrop"></div>
@@ -33,7 +30,7 @@
     </div>
     <header class="main-header">
       <div>
-        <button class="toggle-button">
+        <button class="toggle-button" id="toggle-button">
           <span class="toggle-button__bar"></span>
           <span class="toggle-button__bar"></span>
           <span class="toggle-button__bar"></span>
@@ -71,10 +68,13 @@
       <div id="closeMobileNav">x</div>
       <ul class="mobile-nav__items">
         <li class="mobile-nav__item">
+          <a href="../index.html">Home</a>
+        </li>
+        <li class="mobile-nav__item">
           <a href="../juntos/index.html">Juntos</a>
         </li>
 
-        <li class="mobile-nav__item main-nav__item">
+        <li class="mobile-nav__item">
           <a href="../theblog/index.html">The Blog</a>
         </li>
 
@@ -89,13 +89,21 @@
                 </li> -->
       </ul>
     </nav>
+    <div class="polls-background">
+      <section class="polls-heading">
+        <h1>Encuestas</h1>
+        <p>Y usted que opina? <br /></p>
+      </section>
+    </div>
+
+    <!-- the polls page(encuesta) -->
     <section class="foro_post">
-      <main>
+      <main class="polls-main">
         <span id="thetoken" style="color: white;">NULL</span>
-        <section class="jumbotron">
+        <!-- <section class="jumbotron polls-heading">
           <h1>Encuestas</h1>
           <p class="lead">Y usted que opina? <br /></p>
-        </section>
+        </section> -->
         <section id="thepolls">
           <!-- <div>
                       <h2>Cargando encuestas ....</h2>
@@ -103,9 +111,9 @@
           <div id="thequestion">
             <h3>Porfavor esperar a cargar la página...</h3>
           </div>
-
+  
           <div id="theanswers">
-            <div>
+            <!-- <div>
               <label for="radio1">
                 <input type="radio" name="radio1" value="dynamic" />
                 <span class="realanswer"
@@ -118,66 +126,69 @@
                 <input type="radio" name="radio2" value="dynamic" /> ya debería
                 de cargar....
               </label>
-            </div>
+            </div> -->
           </div>
-
+  
           <span id="polls-footer">
             <button id="pollnextBtn" type="button">Vote & Next Poll</button>
           </span>
         </section>
       </main>
     </section>
-    <div class="header_forum">FORUM COLISSEUM</div>
-    <div class="contenedor_formulario">
-      <form>
-        <div class="contenedor_comentario">
-          <textarea
-            class="comentario"
-            placeholder="Escribe tu mensaje"
-          ></textarea>
-        </div>
-        <div class="contenedor_botonPost">
-          <button class="boton_post" type="submit">Post</button>
-        </div>
-      </form>
-    </div>
-    <!--TARJETA COMENTARIO-->
-    <div id="contenedor_comentario" class="contenedor_comentarios">
-      <!--SUB COMENTARIO-->
-      <!--   <div class="subcomentario">
-            <div class="tarjeta_subcomentario">
-                <div class="header_comentario">
-                    <div class="contenedor_imagenPerfil">
-                        <img src="src/assets/mujer.jpg" alt="mujer cara" />
-                    </div>
-                    <div class="perfil">
-                        <div class="nombre_perfil">
-                            <span>Daniela Sulvaran</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="texto_comentario">
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vel cupiditate magnam reprehenderit veritatis facere debitis asperiores aperiam ad, dicta, consequatur quas quod ipsa? Consequatur necessitatibus sapiente dolorum soluta voluptatem.</p>
-                </div>
-                <div class="footer_comentario footer_subComentario">
-                    <div class="likes">
-                    <div> <img class="thumb like"src="src/assets/thumb.png"/> <span>7</span> </div>
-                    <div> <img class="thumb dislike" src="src/assets/thumb.png"/> <span>10</span> </div>
-                    </div>
-                    <div class="comentarios_reply">
-                        <span>Reply</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        Final Subcomentario
-    </div>-->
-    </div>
+    
+      <div class="contenedor_formulario">
+        <div class="header_forum">FORUM COLISSEUM</div>
+        <form>
+          <div class="contenedor_comentario">
+            <textarea
+              class="comentario"
+              placeholder="Escribe tu mensaje"
+            ></textarea>
+          </div>
+            <!-- button for submitting the post -->
+            <button class="boton_post" type="submit">Post</button>
+        </form>
+        <button class="view-comments" id="view-comments">view comments</button>
+      </div>
+
+    <!-- TARJETA COMENTARIO -->
+      <div id="contenedor_comentario" class="contenedor_comentarios fade">
+        <!-- SUB COMENTARIO -->
+          <!-- <div class="subcomentario">
+              <div class="tarjeta_subcomentario">
+                  <div class="header_comentario">
+                      <div class="contenedor_imagenPerfil">
+                          <img src="src/assets/mujer.jpg" alt="mujer cara" />
+                      </div>
+                      <div class="perfil">
+                          <div class="nombre_perfil">
+                              <span>Daniela Sulvaran</span>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="texto_comentario">
+                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto vel cupiditate magnam reprehenderit veritatis facere debitis asperiores aperiam ad, dicta, consequatur quas quod ipsa? Consequatur necessitatibus sapiente dolorum soluta voluptatem.</p>
+                  </div>
+                  <div class="footer_comentario footer_subComentario">
+                      <div class="likes">
+                      <div> <img class="thumb like"src="src/assets/thumb.png"/> <span>7</span> </div>
+                      <div> <img class="thumb dislike" src="src/assets/thumb.png"/> <span>10</span> </div>
+                      </div>
+                      <div class="comentarios_reply">
+                          <span>Reply</span>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          Final Subcomentario
+        </div> -->
+      </div>
 
     <script defer src="../shared.js"></script>
     <script defer src="jspolls2.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.1/axios.min.js"></script>
-    <script src="src/js/scripts.js"></script>
+    <script src="./src/js/scripts.js"></script>
   </body>
 </html>
+

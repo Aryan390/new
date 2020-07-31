@@ -10,6 +10,7 @@
   </head>
 
   <body>
+    <!-- <div class="red"></div> -->
     <div class="backdrop"></div>
 
     <button id="closeBtn">Log out</button>
@@ -63,15 +64,18 @@
       <div id="closeMobileNav">x</div>
       <ul class="mobile-nav__items">
         <li class="mobile-nav__item">
+          <a href="../index.html">Home</a>
+        </li>
+        <li class="mobile-nav__item">
           <a href="../juntos/index.html">Juntos</a>
         </li>
 
-        <li class="mobile-nav__item main-nav__item">
+        <li class="mobile-nav__item">
           <a href="index.html">The Blog</a>
         </li>
 
         <li class="mobile-nav__item">
-          <a href="index.html">Encuestas</a>
+          <a href="../thepollsforum/index.html">Encuestas</a>
         </li>
         <li class="mobile-nav__item">
           <a href="../challenge/index.html">Challenge</a>
@@ -81,31 +85,37 @@
             </li> -->
       </ul>
     </nav>
-    <main>
-      <span id="thetoken" style="color: white;">NULL</span>
-      <section class="jumbotron">
+    <section class="blog-jumbotron">
+      <div class="blog-head">
         <h1>Nuestro Blog</h1>
-        <p class="lead">
+        <p>
           Mejorando el Blog
         </p>
-      </section>
+      </div>
+    </section>
+
+    <main id="blog-main">
+      <!-- <span id="thetoken" style="color: white;">NULL</span> -->
       <section class="post-list">
         
+        <a href="http://google.com" class="article">
+          <article>
+            <div class="post-thumbnail">
+              <h2>1</h2>
+            </div>
+            <div class="post-content">
+              <h1>No Nonsense</h1>
+              <p>This is not a componet</p>
+            </div>
+          </article>
+        </a>
+
+
+        <a href="NoNonsense" class="article">
         <article>
-          <a href="http://google.com">
-          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
-          <div class="post-content">
-            <h1>No Nonsense</h1>
-            <p>This is not a componet</p>
+          <div class="post-thumbnail">
+            <h2>2</h2>
           </div>
-        </article>
-        </a>
-        </a>
-
-
-        <a hfre="NoNonsense" class="article">
-        <article>
-          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
           <div class="post-content">
             <h1>Improving</h1>
             <p>attempt to build a Vanilla Componet</p>
@@ -113,9 +123,11 @@
         </article>
           </a>
 
-        <a hfre="NoNonsense" class="article">
+        <a href="NoNonsense" class="article">
           <article>
-          <div class="post-thumbnail" style="background-image: url(https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg)"></div>
+          <div class="post-thumbnail">
+            <h2>3</h2>
+          </div>
           <div class="post-content">
             <h1>Enhanced</h1>
             <p>An HTML component</p>
@@ -132,6 +144,7 @@
           title="Hi!" previewText="This my third post!" /> -->
 
       </section>
+    </main>
     <!--   <section id="thepolls">
         <div>
                 <h2>Cargando encuestas ....</h2>
