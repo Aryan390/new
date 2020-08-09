@@ -3,23 +3,14 @@
 
 <head>
     <title>How to get to our office?</title>
+    <link rel="stylesheet" href="./geolocation.css">
 </head>
 
 <body>
-    <style type="text/css">
-        html,
-        body {
-            margin: 0;
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-            position: absolute;
-        }
-    </style>
     <div id="map"></div>
-    <script>
+    <div class="overlay invisible" id="overlay"></div>
+    <div class="ui-component invisible" id="ui-component"></div>
+    <!-- <script>
         function initMap() {
             var officePos = { lat: 50.438284, lng: 30.515339 };
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -32,7 +23,8 @@
                 label: 'A'
             });
         }
-    </script>
+    </script> -->
+    <script src="./geolocation.js"></script>
 
     <script async defer
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0&callback=initMap"
