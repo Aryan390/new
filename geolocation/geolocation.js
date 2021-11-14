@@ -1,10 +1,21 @@
+const distModal = document.getElementById('dist-modal')
+const distBtn = document.getElementById('calcDistance')
+const first = document.getElementById('first')
+const second = document.getElementById('second')
+
+const apiKey = 'AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0'
+
+const markerArr = []
+
+
+// called by google map api script , this function is passed as a callback
 function initMap() {
   const overlay = document.getElementById('overlay')
   const ui = document.getElementById('ui-component')
   const remove = document.getElementById('remove-btn')
-  const markerArr = []
   let currentMarker
 
+  // main marker for the office
   let officePos = { lat: 50.438284, lng: 30.515339 };
   let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 17,
@@ -69,9 +80,35 @@ function initMap() {
         overlay.classList.add('invisible')
       }
     })
+    console.log(markerArr);
   })
 }
 
+// show distance modal with the current markers on the map
+function showDistanceModal(){
+  distModal.classList.toggle('invisible')
+
+  if(distModal.classList.contains('invisible')) return;
+
+  console.log(markerArr);
+
+  markerArr.forEach(item => {
+    const li = document.createElement('li')
+    li.className = 'first-listItem'
+    li.innerHTML = `${item.position.lat()} - ${item.position.lng()}`
+    first.appendChild(li)
+  })
+}
+
+
+// function to calculate distance between 2 points
+function calcDistance(){
+  // https://maps.googleapis.com/maps/api/geocode/json?latlng=40.714224,-73.961452&key=YOUR_API_KEY
+  console.log('somt');
+}
+
+
+distBtn.addEventListener('click', showDistanceModal)
 
 // styles: [
 //   {elementType: 'geometry', stylers: [{color: '#242f3e'}]},
