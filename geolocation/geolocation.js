@@ -1,7 +1,6 @@
 const distModal = document.getElementById('dist-modal')
 const distBtn = document.getElementById('calcDistance')
-const first = document.getElementById('first')
-const second = document.getElementById('second')
+const list = document.getElementById('list');
 
 let apiKey = 'AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0'
 apiKey = 'AIzaSyBcLQws5tAzPKlgi9RnMFs8LR7G1y4tQ_4'
@@ -22,7 +21,7 @@ function reverseGeocode(coords, marker){
         )
       })
       markerArr.push({marker, value: placeArr })
-      console.log(markerArr);
+      // console.log(markerArr);
     })
     .catch(err => console.log(err))
 }
@@ -114,11 +113,43 @@ function showDistanceModal(){
   console.log(markerArr);
 
   markerArr.forEach(item => {
-    const li = document.createElement('li')
-    li.className = 'first-listItem'
-    li.innerHTML = `${item.position.lat()} - ${item.position.lng()}`
-    first.appendChild(li)
+    let labelString = ''
+    item.value.forEach(val => {
+      labelString += `${val.name}, `
+    })
+    const lat = item.marker.position.lat()
+    const lng = item.marker.position.lng()
+
+    labelString += ` ${lat} - ${lng}`
+
+    const inputDiv = createInput(labelString);
+    list.appendChild(inputDiv)
   })
+}
+
+// this function limits the checking of the 2 checkboxes in the whole list
+function checkList (){
+  
+}
+
+function createInput(labelString) {
+  const container = document.createElement('div')
+  const checkbox = document.createElement('input');
+  checkbox.className = 'check'
+  checkbox.addEventListener('click', checkList)
+  checkbox.type = "checkbox";
+  checkbox.name = "name";
+  checkbox.value = "value";
+  checkbox.id = "id";
+
+  const label = document.createElement('label')
+  label.htmlFor = "id";
+  label.appendChild(document.createTextNode(labelString));
+
+  container.appendChild(checkbox);
+  container.appendChild(label);
+
+  return container
 }
 
 
