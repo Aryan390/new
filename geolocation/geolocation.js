@@ -3,10 +3,29 @@ const distBtn = document.getElementById('calcDistance')
 const first = document.getElementById('first')
 const second = document.getElementById('second')
 
-const apiKey = 'AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0'
+let apiKey = 'AIzaSyBSdJwCLjXwIH13M_T988PjRQX8N2KXLP0'
+apiKey = 'AIzaSyBcLQws5tAzPKlgi9RnMFs8LR7G1y4tQ_4'
 
 const markerArr = []
 
+// finally did it using a different api than the google geocoding api, but still awesome that it works, we can change the code though according to the client later, the baseline is that it works
+function reverseGeocode(coords, marker){
+  console.log(coords.lat());
+  fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${coords.lat()}&longitude=${coords.lng()}&localityLanguage=en`)
+    .then(res => res.json())
+    .then(data => {
+      let placeArr = []
+      let place = data.localityInfo.administrative
+      place.forEach(item => {
+        placeArr.push(
+          {name: item.name, desc: item.description, code: item.isoCode}
+        )
+      })
+      markerArr.push({marker, value: placeArr })
+      console.log(markerArr);
+    })
+    .catch(err => console.log(err))
+}
 
 // called by google map api script , this function is passed as a callback
 function initMap() {
@@ -17,6 +36,7 @@ function initMap() {
 
   // main marker for the office
   let officePos = { lat: 50.438284, lng: 30.515339 };
+
   let map = new google.maps.Map(document.getElementById('map'), {
       zoom: 17,
       center: officePos
@@ -31,6 +51,8 @@ function initMap() {
       }
   });
 
+  // reverseGeocode(officePos, markerOffice)
+
 
   // add marker function for multiple user selection
   function addMarker(coords){
@@ -40,8 +62,7 @@ function initMap() {
       animation: google.maps.Animation.DROP
       // draggable: true,
     })
-
-    markerArr.push(marker)
+    reverseGeocode(coords, marker)
 
     // event listener for opening an overlay for a particular marker point
     marker.addListener('click',function(){
@@ -71,11 +92,11 @@ function initMap() {
 
   // event listener on the remove-btn for removing the marker from the map and the array
   remove.addEventListener('click',function(){
-    markerArr.forEach((marker,index) => {
-      if(marker.position.lat() === currentMarker.position.lat() 
-      && marker.position.lng() === currentMarker.position.lng()){
+    markerArr.forEach((item,index) => {
+      if(item.marker.position.lat() === currentMarker.position.lat() 
+      && item.marker.position.lng() === currentMarker.position.lng()){
         markerArr.splice(index,1)
-        marker.setMap(null)
+        item.marker.setMap(null)
         ui.classList.add('invisible')
         overlay.classList.add('invisible')
       }
