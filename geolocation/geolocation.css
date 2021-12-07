@@ -96,14 +96,13 @@ body {
 .distance-modal{
   position: absolute;
   z-index: 3;
-  height: 50%;
-  width: 50%;
-  background: white;
-  top: 50%;
-  left: 50%;
+  height: 100%;
+  width: 100%;
+  background: rgba(88, 88, 88, 0.664);
+  color: white;
+  top: 0;
+  left: 0;
   padding: 10px;
-  transform: translate(-50%,-50%);
-  border: 1px solid rgb(0, 0, 0);
   border-radius: 10px;
   animation: modal 1s;
   display: flex;
@@ -118,6 +117,20 @@ body {
   width: 100%;
   align-items: center;
   justify-content: space-between;
+}
+
+#getDistance{
+  padding: 5px 10px;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  transition: all .2s ease;
+}
+
+#getDistance:hover{
+  background: black;
+  color: white
 }
 
 @keyframes modal{
